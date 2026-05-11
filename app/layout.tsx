@@ -21,8 +21,8 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://annasfoodlab.nl'),
   title: {
-    template: '%s | Annasfoodlab',
-    default: 'Annasfoodlab – Orthomoleculair Diëtist',
+    template: '%s | Anna Foods',
+    default: 'Anna Foods – Orthomoleculair Diëtist',
   },
   description:
     'Persoonlijk voedingsadvies door een orthomoleculair diëtist. Jouw herstel begint hier, met voeding die bij jou past.',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'nl_NL',
     url: 'https://annasfoodlab.nl',
-    siteName: 'Annasfoodlab',
+    siteName: 'Anna Foods',
   },
   robots: {
     index: true,

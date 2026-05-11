@@ -39,7 +39,7 @@ export default function Navigation() {
             href="/"
             className="font-heading text-xl text-brown-gold font-semibold tracking-wide"
           >
-            annasfoodlab.nl
+            Anna Foods
           </Link>
 
           {/* Desktop nav */}

@@ -12,26 +12,27 @@ const trajecten = [
   {
     slug: 'starttraject',
     title: 'Starttraject',
+    tagline: 'Eenmalig',
     description:
       'Eenmalige consultatie voor een helder plan. Perfect voor wie snel inzicht wil in de nodige veranderingen voor een gezonder voedingspatroon.',
-    image: '/images/traject-start.jpg',
-    imageAlt: 'Avocado illustratie',
+    accent: 'border-blue-accent',
   },
   {
     slug: 'versterktraject',
     title: 'Versterktraject',
+    tagline: '3 maanden',
     description:
-      'Dit traject biedt diepgaande begeleiding om je voeding te optimaliseren en je gezondheid te versterken met concrete resultaten.',
-    image: '/images/traject-versterk.jpg',
-    imageAlt: 'Salade bowl illustratie',
+      'Diepgaande begeleiding om je voeding te optimaliseren en je gezondheid te versterken met concrete resultaten.',
+    accent: 'border-terracotta',
+    featured: true,
   },
   {
     slug: 'transformatietraject',
     title: 'Transformatietraject',
+    tagline: '6 maanden',
     description:
       'Het meest uitgebreide traject voor wie zijn gezondheid naar een hoger niveau wil tillen en langdurige resultaten wil bereiken.',
-    image: '/images/traject-transformatie.jpg',
-    imageAlt: 'Maaltijd spread illustratie',
+    accent: 'border-brown-gold',
   },
 ]
 
@@ -44,8 +45,7 @@ const leerpunten = [
       </svg>
     ),
     title: 'Ideale basis gericht op jouw klachten',
-    description:
-      'Hoe creëer je een gezonde basis voor je voeding, slaap, beweging en leefstijl?',
+    description: 'Hoe creëer je een gezonde basis voor je voeding, slaap, beweging en leefstijl?',
   },
   {
     icon: (
@@ -106,7 +106,6 @@ export default function HomePage() {
       <section className="bg-beige">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Text */}
             <div>
               <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl text-brown-gold leading-tight mb-6">
                 Jouw herstel begint hier, met voeding die bij jou past
@@ -124,19 +123,14 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Hero image */}
             <div className="relative h-[420px] sm:h-[520px] lg:h-[620px] rounded-2xl overflow-hidden">
-              {/* Replace with your photo: */}
-              {/* <Image src="/images/hero.jpg" alt="[Naam] op de markt" fill className="object-cover object-top" priority /> */}
-              <div className="absolute inset-0 bg-beige-dark flex items-center justify-center">
-                <p className="text-text-medium text-sm text-center px-6 font-body">
-                  📸 Vervang door jouw professionele portretfoto
-                  <br />
-                  <span className="text-xs opacity-70">
-                    Aanbevolen: verticaal formaat, warm licht
-                  </span>
-                </p>
-              </div>
+              <Image
+                src="/images/hero.jpg"
+                alt="Annick Rozendaal op de markt"
+                fill
+                className="object-cover object-top"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -146,17 +140,15 @@ export default function HomePage() {
       <section className="bg-beige py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Image */}
             <div className="relative h-[380px] sm:h-[460px] rounded-2xl overflow-hidden order-2 lg:order-1">
-              {/* <Image src="/images/kracht-voeding.jpg" alt="Boodschappentas op de markt" fill className="object-cover" /> */}
-              <div className="absolute inset-0 bg-beige-dark flex items-center justify-center">
-                <p className="text-text-medium text-sm text-center px-6 font-body">
-                  📸 Foto: boodschappentas / markt / keuken
-                </p>
-              </div>
+              <Image
+                src="/images/kracht-voeding.jpg"
+                alt="Boodschappentas met verse groenten op de markt"
+                fill
+                className="object-cover"
+              />
             </div>
 
-            {/* Text */}
             <div className="border-l-4 border-blue-accent pl-8 order-1 lg:order-2">
               <h2 className="font-heading text-4xl sm:text-5xl text-blue-accent font-semibold mb-6">
                 De kracht van voeding
@@ -183,7 +175,6 @@ export default function HomePage() {
       <section className="bg-beige py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start">
-            {/* Left: big title + intro */}
             <div className="lg:col-span-1">
               <h2 className="font-heading text-[80px] sm:text-[100px] lg:text-[120px] leading-none text-terracotta font-bold mb-6">
                 Trajecten
@@ -191,36 +182,36 @@ export default function HomePage() {
               <p className="font-body text-text-medium text-sm leading-relaxed mb-6">
                 Ik bied drie soorten trajecten aan waarmee we samen jouw gezondheidsdoelen gaan
                 proberen te bereiken. Bij alle trajecten sta ik 24/7 voor je klaar om je te
-                helpen bij al jouw vragen. Want net als ik weet ik dat je de hele dag met
-                voeding bezig bent en juist die kleine keuzes kunnen het verschil maken.
+                helpen bij al jouw vragen.
               </p>
               <Link href="/trajecten" className="btn-terracotta">
                 Ontdek alle trajecten
               </Link>
             </div>
 
-            {/* Right: 3 cards */}
-            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
               {trajecten.map((t) => (
-                <div key={t.slug} className="flex flex-col">
-                  <div className="h-48 bg-beige-dark rounded-xl mb-5 flex items-center justify-center">
-                    {/* <Image src={t.image} alt={t.imageAlt} width={300} height={200} className="w-full h-full object-cover rounded-xl" /> */}
-                    <p className="text-xs text-text-medium text-center px-2 font-body">
-                      📸 Illustratie<br />{t.imageAlt}
-                    </p>
-                  </div>
+                <div
+                  key={t.slug}
+                  className={`flex flex-col bg-white/40 rounded-2xl border border-beige-dark border-t-4 ${t.accent} p-6 hover:shadow-md transition-shadow`}
+                >
+                  <span className="font-body text-xs uppercase tracking-widest text-text-medium/60 mb-2">
+                    {t.tagline}
+                  </span>
                   <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-3">
                     {t.title}
                   </h3>
-                  <p className="font-body text-text-medium text-sm leading-relaxed flex-grow mb-3">
+                  <p className="font-body text-text-medium text-sm leading-relaxed flex-grow mb-4">
                     {t.description}
                   </p>
-                  <Link
-                    href="/trajecten"
-                    className="font-body text-blue-accent text-sm hover:underline"
-                  >
-                    Meer weten
+                  <Link href="/trajecten" className="font-body text-blue-accent text-sm hover:underline">
+                    Meer weten →
                   </Link>
+                  {t.featured && (
+                    <span className="mt-3 inline-block bg-terracotta/10 text-terracotta text-xs font-body font-semibold px-3 py-1 rounded-full w-fit">
+                      Meest gekozen
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
@@ -262,30 +253,13 @@ export default function HomePage() {
                 key={i}
                 className="bg-white/40 rounded-2xl p-8 border border-beige-dark flex flex-col"
               >
-                <p className="font-body text-text-medium leading-relaxed mb-6 text-justify flex-grow">
+                <p className="font-body text-text-medium leading-relaxed mb-6 flex-grow">
                   &ldquo;{e.quote}&rdquo;
                 </p>
-                <p className="font-body font-semibold text-text-dark text-sm">
-                  – {e.naam}
-                </p>
+                <p className="font-body font-semibold text-text-dark text-sm">– {e.naam}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA band ── */}
-      <section className="bg-beige-deeper py-16">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-4">
-            Klaar om te beginnen?
-          </h2>
-          <p className="font-body text-text-medium mb-8">
-            Plan een gratis kennismakingsgesprek en ontdek welk traject het beste bij jou past.
-          </p>
-          <Link href="/contact" className="btn-terracotta">
-            Boek jouw consult!
-          </Link>
         </div>
       </section>
     </>
