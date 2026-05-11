@@ -176,50 +176,45 @@ export default function HomePage() {
       {/* ── Trajecten preview ── */}
       <section className="bg-beige py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Heading + intro */}
-          <div className="mb-10">
-            <h2 className="font-heading text-[80px] sm:text-[100px] lg:text-[120px] leading-none text-terracotta font-bold">
-              Trajecten
-            </h2>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4">
-              <p className="font-body text-text-medium text-sm leading-relaxed max-w-md">
+          <h2 className="font-heading text-[80px] sm:text-[100px] lg:text-[120px] leading-none text-terracotta font-bold mb-10">
+            Trajecten
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+            {/* Left: intro + button */}
+            <div className="lg:col-span-1">
+              <p className="font-body text-text-medium text-sm leading-relaxed mb-8">
                 Ik bied drie soorten trajecten aan waarmee we samen jouw gezondheidsdoelen gaan
-                proberen te bereiken. Bij alle trajecten sta ik 24/7 voor je klaar.
+                proberen te bereiken. Bij alle trajecten sta ik 24/7 voor je klaar om je te
+                helpen bij al jouw vragen. Want net als ik weet ik dat je de hele dag met
+                voeding bezig bent en juist die kleine keuzes kunnen het verschil maken.
               </p>
-              <Link href="/trajecten" className="btn-terracotta shrink-0">
+              <Link href="/trajecten" className="btn-terracotta">
                 Ontdek alle trajecten
               </Link>
             </div>
-          </div>
 
-          {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-stretch">
-            {trajecten.map((t) => (
-              <div
-                key={t.slug}
-                className={`flex flex-col bg-white/40 rounded-2xl border border-beige-dark border-t-4 ${t.accent} p-6 hover:shadow-md transition-shadow`}
-              >
-                <span className="font-body text-xs uppercase tracking-widest text-text-medium/60 mb-2">
-                  {t.tagline}
-                </span>
-                <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-3">
-                  {t.title}
-                </h3>
-                <p className="font-body text-text-medium text-sm leading-relaxed flex-grow mb-4">
-                  {t.description}
-                </p>
-                <div className="flex items-center justify-between mt-auto">
-                  <Link href="/trajecten" className="font-body text-blue-accent text-sm hover:underline">
-                    Meer weten →
+            {/* Right: 3 cards with illustration */}
+            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {trajecten.map((t) => (
+                <div key={t.slug} className="flex flex-col">
+                  {/* Illustration placeholder */}
+                  <div className="h-52 rounded-xl mb-5 bg-[#f5edda] flex items-center justify-center">
+                    {/* Replace with: <Image src={`/images/${t.slug}.jpg`} alt={t.title} fill className="object-cover rounded-xl" /> */}
+                    <span className="text-4xl opacity-40">🥑</span>
+                  </div>
+                  <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-3">
+                    {t.title}
+                  </h3>
+                  <p className="font-body text-text-medium text-sm leading-relaxed flex-grow mb-4">
+                    {t.description}
+                  </p>
+                  <Link href="/trajecten" className="font-body text-blue-accent text-sm hover:underline underline underline-offset-4">
+                    Meer weten
                   </Link>
-                  {t.featured && (
-                    <span className="inline-block bg-terracotta/10 text-terracotta text-xs font-body font-semibold px-3 py-1 rounded-full">
-                      Meest gekozen
-                    </span>
-                  )}
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
