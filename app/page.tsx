@@ -154,8 +154,10 @@ export default function HomePage() {
                 De kracht van voeding
               </h2>
               <p className="font-body text-text-medium leading-relaxed mb-4">
-                [Jouw persoonlijk verhaal hier – vertel over je eigen ervaringen met voeding en
-                gezondheid, en hoe dat je heeft gemotiveerd om orthomoleculair diëtist te worden.]
+                Jarenlang had ik zelf last van darmklachten, heftige acne en een opgeblazen
+                gevoel. Mijn hormonen waren volledig uit balans en pas toen ik overstapte op een
+                plantaardig dieet, verdwenen mijn klachten bijna volledig. Ik voelde mij weer in
+                balans. Dat gun ik jou ook!
               </p>
               <p className="font-body text-text-medium leading-relaxed mb-8">
                 Ik geloof in de kracht van voeding en het zelf herstellend vermogen van ons
@@ -174,47 +176,50 @@ export default function HomePage() {
       {/* ── Trajecten preview ── */}
       <section className="bg-beige py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start">
-            <div className="lg:col-span-1">
-              <h2 className="font-heading text-[80px] sm:text-[100px] lg:text-[120px] leading-none text-terracotta font-bold mb-6">
-                Trajecten
-              </h2>
-              <p className="font-body text-text-medium text-sm leading-relaxed mb-6">
+          {/* Heading + intro */}
+          <div className="mb-10">
+            <h2 className="font-heading text-[80px] sm:text-[100px] lg:text-[120px] leading-none text-terracotta font-bold">
+              Trajecten
+            </h2>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4">
+              <p className="font-body text-text-medium text-sm leading-relaxed max-w-md">
                 Ik bied drie soorten trajecten aan waarmee we samen jouw gezondheidsdoelen gaan
-                proberen te bereiken. Bij alle trajecten sta ik 24/7 voor je klaar om je te
-                helpen bij al jouw vragen.
+                proberen te bereiken. Bij alle trajecten sta ik 24/7 voor je klaar.
               </p>
-              <Link href="/trajecten" className="btn-terracotta">
+              <Link href="/trajecten" className="btn-terracotta shrink-0">
                 Ontdek alle trajecten
               </Link>
             </div>
+          </div>
 
-            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {trajecten.map((t) => (
-                <div
-                  key={t.slug}
-                  className={`flex flex-col bg-white/40 rounded-2xl border border-beige-dark border-t-4 ${t.accent} p-6 hover:shadow-md transition-shadow`}
-                >
-                  <span className="font-body text-xs uppercase tracking-widest text-text-medium/60 mb-2">
-                    {t.tagline}
-                  </span>
-                  <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-3">
-                    {t.title}
-                  </h3>
-                  <p className="font-body text-text-medium text-sm leading-relaxed flex-grow mb-4">
-                    {t.description}
-                  </p>
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-stretch">
+            {trajecten.map((t) => (
+              <div
+                key={t.slug}
+                className={`flex flex-col bg-white/40 rounded-2xl border border-beige-dark border-t-4 ${t.accent} p-6 hover:shadow-md transition-shadow`}
+              >
+                <span className="font-body text-xs uppercase tracking-widest text-text-medium/60 mb-2">
+                  {t.tagline}
+                </span>
+                <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-3">
+                  {t.title}
+                </h3>
+                <p className="font-body text-text-medium text-sm leading-relaxed flex-grow mb-4">
+                  {t.description}
+                </p>
+                <div className="flex items-center justify-between mt-auto">
                   <Link href="/trajecten" className="font-body text-blue-accent text-sm hover:underline">
                     Meer weten →
                   </Link>
                   {t.featured && (
-                    <span className="mt-3 inline-block bg-terracotta/10 text-terracotta text-xs font-body font-semibold px-3 py-1 rounded-full w-fit">
+                    <span className="inline-block bg-terracotta/10 text-terracotta text-xs font-body font-semibold px-3 py-1 rounded-full">
                       Meest gekozen
                     </span>
                   )}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
