@@ -194,24 +194,32 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Right: 3 cards with illustration */}
-            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {/* Right: 3 cards */}
+            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6 items-stretch">
               {trajecten.map((t) => (
-                <div key={t.slug} className="flex flex-col">
-                  {/* Illustration placeholder */}
-                  <div className="h-52 rounded-xl mb-5 bg-[#f5edda] flex items-center justify-center">
-                    {/* Replace with: <Image src={`/images/${t.slug}.jpg`} alt={t.title} fill className="object-cover rounded-xl" /> */}
-                    <span className="text-4xl opacity-40">🥑</span>
-                  </div>
+                <div
+                  key={t.slug}
+                  className={`flex flex-col bg-white/40 rounded-2xl border border-beige-dark border-t-4 ${t.accent} p-6 hover:shadow-md transition-shadow`}
+                >
+                  <span className="font-body text-xs uppercase tracking-widest text-text-medium/60 mb-2">
+                    {t.tagline}
+                  </span>
                   <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-3">
                     {t.title}
                   </h3>
                   <p className="font-body text-text-medium text-sm leading-relaxed flex-grow mb-4">
                     {t.description}
                   </p>
-                  <Link href="/trajecten" className="font-body text-blue-accent text-sm hover:underline underline underline-offset-4">
-                    Meer weten
-                  </Link>
+                  <div className="flex items-center justify-between mt-auto">
+                    <Link href="/trajecten" className="font-body text-blue-accent text-sm hover:underline">
+                      Meer weten →
+                    </Link>
+                    {t.featured && (
+                      <span className="inline-block bg-terracotta/10 text-terracotta text-xs font-body font-semibold px-3 py-1 rounded-full">
+                        Meest gekozen
+                      </span>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
