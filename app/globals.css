@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f2e9e0;
+    color: #2d1f0f;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cormorant), Georgia, serif;
+  }
+}
+
+@layer components {
+  .btn-terracotta {
+    @apply bg-terracotta text-white px-8 py-3 rounded-full font-body font-medium transition-all duration-200 hover:bg-terracotta-dark inline-block text-center;
+  }
+
+  .btn-terracotta-outline {
+    @apply border-2 border-terracotta text-terracotta px-8 py-3 rounded-full font-body font-medium transition-all duration-200 hover:bg-terracotta hover:text-white inline-block text-center;
+  }
+
+  .section-label {
+    @apply font-body text-xs uppercase tracking-widest text-brown-light mb-3;
+  }
+
+  .placeholder-image {
+    @apply bg-beige-dark rounded-2xl flex items-center justify-center text-text-medium font-body text-sm text-center p-4;
+  }
+}
