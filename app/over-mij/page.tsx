@@ -138,31 +138,30 @@ export default function OverMijPage() {
         </p>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Verhaal */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            {/* Links: verhaal */}
             <div>
               <h2 className="font-heading text-2xl text-brown-gold font-semibold mb-6">
                 Mijn achtergrond
               </h2>
               <VerhaalExpand />
             </div>
-            <div className="lg:col-span-2" />
-          </div>
 
-          {/* Opleidingen tijdlijn */}
-          <div className="mb-8">
-            <p className="font-body text-xs uppercase tracking-widest text-blue-accent mb-2">
-              Opleidingen
-            </p>
-            <HorizontaleTijdlijn items={opleidingen} kleur="bg-blue-accent" />
-          </div>
-
-          {/* Ervaringen tijdlijn */}
-          <div>
-            <p className="font-body text-xs uppercase tracking-widest text-terracotta mb-2">
-              Ervaringen
-            </p>
-            <HorizontaleTijdlijn items={ervaringen} kleur="bg-terracotta" />
+            {/* Rechts: twee tijdlijnen gestapeld */}
+            <div className="lg:col-span-2 space-y-10">
+              <div>
+                <p className="font-body text-xs uppercase tracking-widest text-blue-accent mb-2">
+                  Opleidingen
+                </p>
+                <HorizontaleTijdlijn items={opleidingen} kleur="bg-blue-accent" />
+              </div>
+              <div>
+                <p className="font-body text-xs uppercase tracking-widest text-terracotta mb-2">
+                  Ervaringen
+                </p>
+                <HorizontaleTijdlijn items={ervaringen} kleur="bg-terracotta" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
