@@ -187,6 +187,76 @@ export default function OverMijPage() {
           </div>
         </div>
       </section>
+      {/* ── Kwaliteit staat centraal ── */}
+      <section className="bg-beige py-14 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+            {/* Tekst */}
+            <div>
+              <h2 className="font-heading text-4xl sm:text-5xl text-blue-accent font-semibold mb-6">
+                Kwaliteit staat centraal
+              </h2>
+              <div className="space-y-4 font-body text-text-medium leading-relaxed">
+                <p>
+                  [Jouw tekst hier — vertel wat kwaliteit voor jou betekent in de praktijk: hoe
+                  je consulten aanpakt, hoe je kennis up-to-date houdt, en waarom een
+                  wetenschappelijke onderbouwing voor jou essentieel is.]
+                </p>
+                <p>
+                  Mijn aanpak is altijd evidence-based: ik combineer de nieuwste
+                  wetenschappelijke inzichten met praktische toepasbaarheid in het dagelijks
+                  leven. Want goede intenties zonder onderbouwing zijn niet genoeg.
+                </p>
+                <p>
+                  [Aanvullende alinea over jouw werkwijze, hoe je omgaat met nieuwe
+                  onderzoeken, of waarom jij gelooft in continue bijscholing.]
+                </p>
+              </div>
+            </div>
+
+            {/* Registraties & beroepsverenigingen */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-heading text-2xl text-brown-gold font-semibold mb-4">
+                  Registraties
+                </h3>
+                <ul className="space-y-2">
+                  {[
+                    '[Registratie 1 — bijv. BIG-register Diëtist]',
+                    '[Registratie 2]',
+                    '[Registratie 3]',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm">
+                      <span className="text-terracotta mt-1 shrink-0">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-2xl text-brown-gold font-semibold mb-4">
+                  Beroepsverenigingen
+                </h3>
+                <ul className="space-y-2">
+                  {[
+                    '[Vereniging 1 — bijv. MBOG]',
+                    '[Vereniging 2]',
+                    '[Vereniging 3]',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm">
+                      <span className="text-blue-accent mt-1 shrink-0">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
     </>
   )
 }
