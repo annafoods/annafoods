@@ -31,27 +31,22 @@ const trajecten = [
 
 const leerpunten = [
   {
-    icon: '🫙',
     title: 'Ideale basis voor jouw klachten',
     description: 'Hoe creëer je een gezonde basis voor je voeding, slaap, beweging en leefstijl?',
   },
   {
-    icon: '⭐',
     title: 'Kick-start je ochtendroutine',
     description: 'Een goede ochtendroutine legt de basis voor een energieke dag zonder klachten.',
   },
   {
-    icon: '💊',
     title: 'Kracht van suppletie',
     description: 'Welke supplementen zijn voor jóu van belang bij het herstellen van je balans?',
   },
   {
-    icon: '🚫',
-    title: 'Niet meer doen!',
+    title: 'Wat vermijd je beter?',
     description: 'Welke voedingsmiddelen verergeren je klachten en kun je het beste (tijdelijk) vermijden?',
   },
   {
-    icon: '🛒',
     title: 'Slimmer shoppen in de supermarkt',
     description:
       'We worden overspoeld met bewerkte producten (ultra-processed foods). Ik leer je etiketten te lezen zodat je bewuste en gezonde keuzes kunt maken.',
@@ -84,7 +79,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-blue-accent leading-tight mb-6">
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-blue-accent font-bold leading-tight mb-6">
                 Jouw herstel begint hier, met voeding die bij jou past
               </h1>
               <p className="font-body text-text-medium text-base leading-relaxed mb-8 max-w-lg">
@@ -124,8 +119,8 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <div className="border-l-4 border-blue-accent pl-8 order-1 lg:order-2">
-              <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-6">
+            <div className="border-l-2 border-blue-accent pl-8 order-1 lg:order-2">
+              <h2 className="font-heading text-4xl sm:text-5xl text-blue-accent font-semibold mb-6">
                 De kracht van voeding
               </h2>
               <p className="font-body text-text-medium leading-relaxed mb-4">
@@ -152,73 +147,75 @@ export default function HomePage() {
       <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Trajecten */}
           <h2 className="font-heading text-[72px] sm:text-[96px] lg:text-[112px] leading-none text-terracotta font-bold mb-10">
             Trajecten
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start mb-16">
-            <div className="lg:col-span-1">
-              <p className="font-body text-text-medium text-sm leading-relaxed mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            {/* Links: intro + 2 kaarten gestapeld */}
+            <div>
+              <p className="font-body text-text-medium text-sm leading-relaxed mb-6">
                 Ik bied twee trajecten aan waarmee we samen jouw gezondheidsdoelen gaan proberen
                 te bereiken. Bij beide trajecten sta ik 24/7 voor je klaar om je te helpen bij
                 al jouw vragen.
               </p>
-              <Link href="/trajecten" className="btn-terracotta">
+              <Link href="/trajecten" className="btn-terracotta mb-8 inline-block">
                 Ontdek de trajecten
               </Link>
-            </div>
-
-            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
-              {trajecten.map((t) => (
-                <div
-                  key={t.slug}
-                  className={`flex flex-col bg-white/40 rounded-2xl border border-beige-dark border-t-4 ${t.accent} p-6 hover:shadow-md transition-shadow`}
-                >
-                  <span className="font-body text-xs uppercase tracking-widest text-text-medium/60 mb-2">
-                    {t.tagline}
-                  </span>
-                  <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-3">
-                    {t.title}
-                  </h3>
-                  <p className="font-body text-text-medium text-sm leading-relaxed flex-grow mb-4">
-                    {t.description}
-                  </p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <Link href="/trajecten" className="font-body text-blue-accent text-sm hover:underline">
+              <div className="flex flex-col gap-4 mt-2">
+                {trajecten.map((t) => (
+                  <div
+                    key={t.slug}
+                    className={`flex flex-col bg-white/40 rounded-2xl border border-beige-dark border-l-4 ${t.accent} px-6 py-5 hover:shadow-md transition-shadow`}
+                  >
+                    <div className="flex items-start justify-between mb-1">
+                      <span className="font-body text-xs uppercase tracking-widest text-text-medium/60">
+                        {t.tagline}
+                      </span>
+                      {t.featured && (
+                        <span className="inline-block bg-terracotta/10 text-terracotta text-xs font-body font-semibold px-3 py-0.5 rounded-full">
+                          Meest gekozen
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-2">
+                      {t.title}
+                    </h3>
+                    <p className="font-body text-text-medium text-sm leading-relaxed mb-3">
+                      {t.description}
+                    </p>
+                    <Link href="/trajecten" className="font-body text-blue-accent text-sm hover:underline self-start">
                       Meer weten →
                     </Link>
-                    {t.featured && (
-                      <span className="inline-block bg-terracotta/10 text-terracotta text-xs font-body font-semibold px-3 py-1 rounded-full">
-                        Meest gekozen
-                      </span>
-                    )}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Wat jij altijd leert — compacte strip */}
-          <div className="border-t border-beige-dark pt-12">
-            <p className="font-body text-xs uppercase tracking-widest text-brown-light mb-8">
-              Wat jij sowieso gaat leren
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-              {leerpunten.map((punt) => (
-                <div key={punt.title}>
-                  <span className="text-2xl block mb-2">{punt.icon}</span>
-                  <h4 className="font-body font-semibold text-text-dark text-sm mb-1">
-                    {punt.title}
-                  </h4>
-                  <p className="font-body text-text-medium text-xs leading-relaxed">
-                    {punt.description}
-                  </p>
-                </div>
-              ))}
+            {/* Rechts: wat jij sowieso leert */}
+            <div className="lg:pl-8 lg:border-l lg:border-beige-dark">
+              <p className="font-body text-xs uppercase tracking-widest text-brown-light mb-8">
+                Wat jij sowieso gaat leren
+              </p>
+              <div className="space-y-6">
+                {leerpunten.map((punt) => (
+                  <div key={punt.title} className="flex gap-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 shrink-0" />
+                    <div>
+                      <h4 className="font-body font-semibold text-text-dark text-sm mb-0.5">
+                        {punt.title}
+                      </h4>
+                      <p className="font-body text-text-medium text-sm leading-relaxed">
+                        {punt.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </section>
 
