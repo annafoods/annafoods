@@ -35,11 +35,13 @@ export default function Navigation() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link
-            href="/"
-            className="font-heading text-xl text-brown-gold font-semibold tracking-wide"
-          >
-            Anna Foods
+          <Link href="/" className="group">
+            <span className="font-heading text-xl text-brown-gold font-semibold tracking-wide block">
+              Anna Foods
+            </span>
+            <span className="hidden sm:block font-body text-[10px] text-text-medium/60 tracking-wide leading-none mt-0.5">
+              Voedingswetenschapper&nbsp;·&nbsp;Diëtist & orth. therapeut&nbsp;·&nbsp;Insider
+            </span>
           </Link>
 
           {/* Desktop nav */}
