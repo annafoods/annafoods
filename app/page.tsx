@@ -151,7 +151,7 @@ export default function HomePage() {
             Trajecten
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             {/* Links: intro + 2 kaarten gestapeld */}
             <div>
