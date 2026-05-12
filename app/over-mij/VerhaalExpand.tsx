@@ -7,19 +7,26 @@ export default function VerhaalExpand() {
 
   return (
     <div className="font-body text-text-medium leading-relaxed text-sm space-y-4">
-      {/* Altijd zichtbaar */}
-      <p>
-        Na mijn studie voeding &amp; diëtetiek wilde ik nog dieper in het vakgebied duiken.
-        Die nieuwsgierigheid bracht me naar Schotland, waar ik de Master Human Nutrition
-        volgde aan de Universiteit van Glasgow. De focus lag op hoe voedselkeuzes onze
-        biochemische en fysiologische processen beïnvloeden en wat de impact van voeding is op
-        zowel fysieke als mentale gezondheid.
-      </p>
-      <p>
-        Daarnaast leerde ik wetenschappelijke kennis kritisch te interpreteren en praktisch toe
-        te passen. Juist in een tijd waarin er zoveel misinformatie over voeding rondgaat, vind
-        ik het belangrijk om feiten van fabels te onderscheiden.
-      </p>
+      {/* Altijd zichtbaar — met fade onderaan als ingeklapt */}
+      <div className="relative">
+        <p>
+          Na mijn studie voeding &amp; diëtetiek wilde ik nog dieper in het vakgebied duiken.
+          Die nieuwsgierigheid bracht me naar Schotland, waar ik de Master Human Nutrition
+          volgde aan de Universiteit van Glasgow. De focus lag op hoe voedselkeuzes onze
+          biochemische en fysiologische processen beïnvloeden en wat de impact van voeding is op
+          zowel fysieke als mentale gezondheid.
+        </p>
+        <p className="mt-4">
+          Daarnaast leerde ik wetenschappelijke kennis kritisch te interpreteren en praktisch toe
+          te passen. Juist in een tijd waarin er zoveel misinformatie over voeding rondgaat, vind
+          ik het belangrijk om feiten van fabels te onderscheiden. En de wetenschap laat steeds
+          duidelijker zien hoe groot…
+        </p>
+        {/* Fade-out gradient */}
+        {!open && (
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-beige-dark to-transparent pointer-events-none" />
+        )}
+      </div>
 
       {/* Uitklapbaar */}
       <div className={`space-y-4 overflow-hidden transition-all duration-500 ${open ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
