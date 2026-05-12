@@ -84,7 +84,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-brown-gold leading-tight mb-6">
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-blue-accent leading-tight mb-6">
                 Jouw herstel begint hier, met voeding die bij jou past
               </h1>
               <p className="font-body text-text-medium text-base leading-relaxed mb-8 max-w-lg">
