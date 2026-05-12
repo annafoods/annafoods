@@ -31,54 +31,28 @@ const ervaringen = [
   { jaar: '2016', titel: 'Stagiair Diëtist', sub: 'Diabetes Fonds' },
   { jaar: '2018', titel: 'Wetenschappelijk onderzoek', sub: 'Omega-3 & spierfunctie bij 65+ · Gepubliceerd, cijfer 8,5' },
   { jaar: '2018 – 2019', titel: 'Medical Specialist', sub: 'Danone' },
-  { jaar: '2021 – 2024', titel: 'Food Product Developer', sub: 'Abbot Kinneys' },
-  { jaar: '2024', titel: 'Vrijwilligerswerk voedingsprojecten', sub: 'Oeganda' },
-  { jaar: '2025', titel: 'Food Product Developer', sub: 'Kara-Tunga' },
+  { jaar: '2021 – 2025', titel: 'Food Product Developer', sub: 'Abbot Kinneys & Kara-Tunga' },
 ]
 
 type TijdlijnItem = { jaar: string; titel: string; sub: string }
 
-function HorizontaleTijdlijn({ items, kleur }: { items: TijdlijnItem[]; kleur: string }) {
+function VerticaleTijdlijn({ items, kleur }: { items: TijdlijnItem[]; kleur: string }) {
   return (
-    <>
-      {/* Desktop: horizontaal */}
-      <div className="hidden lg:block relative pt-4 pb-16">
-        <div className="absolute top-[11px] left-0 right-0 h-px bg-beige-deeper" />
-        <div className="flex justify-between relative">
-          {items.map((item, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center"
-              style={{ width: `${100 / items.length}%` }}
-            >
-              <div className={`w-2.5 h-2.5 rounded-full shrink-0 z-10 ${kleur}`} />
-              <div className={`px-1 text-center ${i % 2 === 0 ? 'mt-4' : 'order-first mb-4'}`}>
-                <p className="font-body text-[10px] text-brown-light whitespace-nowrap">{item.jaar}</p>
-                <p className="font-body text-xs font-semibold text-text-dark leading-tight mt-0.5">{item.titel}</p>
-                <p className="font-body text-[10px] text-text-medium leading-snug mt-0.5">{item.sub}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobiel: verticaal */}
-      <div className="lg:hidden space-y-4">
-        {items.map((item, i) => (
-          <div key={i} className="flex gap-3">
-            <div className="flex flex-col items-center">
-              <div className={`w-2.5 h-2.5 rounded-full shrink-0 mt-1 ${kleur}`} />
-              <div className="w-px flex-1 bg-beige-deeper mt-1" />
-            </div>
-            <div className="pb-4">
-              <p className="font-body text-[11px] text-brown-light uppercase tracking-widest">{item.jaar}</p>
-              <p className="font-body text-sm font-semibold text-text-dark">{item.titel}</p>
-              <p className="font-body text-xs text-text-medium">{item.sub}</p>
-            </div>
+    <div className="space-y-4">
+      {items.map((item, i) => (
+        <div key={i} className="flex gap-3">
+          <div className="flex flex-col items-center">
+            <div className={`w-2.5 h-2.5 rounded-full shrink-0 mt-1.5 ${kleur}`} />
+            {i < items.length - 1 && <div className="w-px flex-1 bg-beige-deeper mt-1" />}
           </div>
-        ))}
-      </div>
-    </>
+          <div className="pb-3">
+            <p className="font-body text-[11px] text-brown-light uppercase tracking-widest">{item.jaar}</p>
+            <p className="font-body text-sm font-semibold text-text-dark">{item.titel}</p>
+            <p className="font-body text-xs text-text-medium">{item.sub}</p>
+          </div>
+        </div>
+      ))}
+    </div>
   )
 }
 
@@ -153,13 +127,13 @@ export default function OverMijPage() {
                 <p className="font-body text-xs uppercase tracking-widest text-blue-accent mb-2">
                   Opleidingen
                 </p>
-                <HorizontaleTijdlijn items={opleidingen} kleur="bg-blue-accent" />
+                <VerticaleTijdlijn items={opleidingen} kleur="bg-blue-accent" />
               </div>
               <div>
                 <p className="font-body text-xs uppercase tracking-widest text-terracotta mb-2">
                   Ervaringen
                 </p>
-                <HorizontaleTijdlijn items={ervaringen} kleur="bg-terracotta" />
+                <VerticaleTijdlijn items={ervaringen} kleur="bg-terracotta" />
               </div>
             </div>
           </div>
