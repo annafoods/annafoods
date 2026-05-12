@@ -29,8 +29,8 @@ export default function Navigation() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-[#2d1f0f] transition-shadow duration-200 ${
-        scrolled ? 'shadow-lg shadow-black/20' : ''
+      className={`sticky top-0 z-50 bg-[#d0c4b5] transition-shadow duration-200 ${
+        scrolled ? 'shadow-sm' : ''
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,10 +38,10 @@ export default function Navigation() {
 
           {/* Logo */}
           <Link href="/" className="group">
-            <span className="font-logo text-2xl sm:text-3xl text-[#e8d5b7] font-bold tracking-wide block leading-tight">
+            <span className="font-logo text-2xl sm:text-3xl text-brown-gold font-bold tracking-wide block leading-tight">
               Anna Foods
             </span>
-            <span className="font-body text-[10px] text-white/40 tracking-wide leading-none mt-0.5 block">
+            <span className="font-body text-[10px] text-text-dark/50 tracking-wide leading-none mt-0.5 block">
               Voedingswetenschapper&nbsp;·&nbsp;Diëtist&nbsp;&amp;&nbsp;orthomoleculair&nbsp;therapeut&nbsp;·&nbsp;Insider
             </span>
           </Link>
@@ -54,8 +54,8 @@ export default function Navigation() {
                 href={link.href}
                 className={`font-body text-sm transition-colors duration-150 ${
                   pathname === link.href
-                    ? 'text-[#c9956b] font-medium'
-                    : 'text-white/70 hover:text-white'
+                    ? 'text-terracotta font-medium'
+                    : 'text-text-dark hover:text-blue-accent'
                 }`}
               >
                 {link.label}
@@ -70,23 +70,23 @@ export default function Navigation() {
             aria-label={isOpen ? 'Menu sluiten' : 'Menu openen'}
             aria-expanded={isOpen}
           >
-            <span className={`block w-6 h-0.5 bg-white/80 transition-transform duration-200 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-white/80 transition-opacity duration-200 ${isOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-white/80 transition-transform duration-200 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-text-dark transition-transform duration-200 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-text-dark transition-opacity duration-200 ${isOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-text-dark transition-transform duration-200 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
 
         {/* Mobile menu */}
         <div className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="py-4 border-t border-white/10 space-y-1">
+          <div className="py-4 border-t border-text-dark/10 space-y-1">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={`block py-2 px-1 font-body transition-colors ${
                   pathname === link.href
-                    ? 'text-[#c9956b] font-medium'
-                    : 'text-white/70 hover:text-white'
+                    ? 'text-terracotta font-medium'
+                    : 'text-text-dark hover:text-blue-accent'
                 }`}
               >
                 {link.label}
