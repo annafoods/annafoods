@@ -16,6 +16,7 @@ const trajecten = [
     description:
       'Eenmalige consultatie voor een helder plan. Perfect voor wie snel inzicht wil in de nodige veranderingen voor een gezonder voedingspatroon.',
     accent: 'border-blue-accent',
+    featured: false,
   },
   {
     slug: 'versterktraject',
@@ -26,58 +27,34 @@ const trajecten = [
     accent: 'border-terracotta',
     featured: true,
   },
-  {
-    slug: 'transformatietraject',
-    title: 'Transformatietraject',
-    tagline: '6 maanden',
-    description:
-      'Het meest uitgebreide traject voor wie zijn gezondheid naar een hoger niveau wil tillen en langdurige resultaten wil bereiken.',
-    accent: 'border-brown-gold',
-  },
 ]
 
 const leerpunten = [
   {
-    icon: (
-      <svg viewBox="0 0 40 40" className="w-10 h-10 mx-auto" fill="none">
-        <ellipse cx="20" cy="22" rx="11" ry="14" stroke="#8B1A1A" strokeWidth="2" />
-        <path d="M20 8 C20 8 16 12 20 16" stroke="#8B1A1A" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
-    title: 'Ideale basis gericht op jouw klachten',
+    icon: '🫙',
+    title: 'Ideale basis voor jouw klachten',
     description: 'Hoe creëer je een gezonde basis voor je voeding, slaap, beweging en leefstijl?',
   },
   {
-    icon: (
-      <svg viewBox="0 0 40 40" className="w-10 h-10 mx-auto" fill="none">
-        <polygon points="20,6 24,16 35,16 26,23 29,34 20,27 11,34 14,23 5,16 16,16" fill="#B8860B" />
-      </svg>
-    ),
-    title: 'Kick-start je dag met een ochtendroutine',
-    description:
-      'Hoe zorg je voor een energieke start van je dag? Een goede ochtendroutine kan helpen om klachten gedurende de dag te voorkomen.',
+    icon: '⭐',
+    title: 'Kick-start je ochtendroutine',
+    description: 'Een goede ochtendroutine legt de basis voor een energieke dag zonder klachten.',
   },
   {
-    icon: (
-      <svg viewBox="0 0 40 40" className="w-10 h-10 mx-auto" fill="none">
-        <ellipse cx="15" cy="20" rx="7" ry="11" fill="#4B4B8F" opacity="0.85" />
-        <ellipse cx="25" cy="20" rx="7" ry="11" fill="#7B7BAF" opacity="0.7" />
-      </svg>
-    ),
+    icon: '💊',
     title: 'Kracht van suppletie',
-    description:
-      'Suppletie kan een belangrijke rol spelen in het herstellen van je balans. Ik geef je graag advies over welke supplementen voor jou van belang zijn!',
+    description: 'Welke supplementen zijn voor jóu van belang bij het herstellen van je balans?',
   },
   {
-    icon: (
-      <svg viewBox="0 0 40 40" className="w-10 h-10 mx-auto" fill="none">
-        <rect x="12" y="10" width="16" height="20" rx="3" fill="#7A6040" />
-        <rect x="16" y="6" width="8" height="6" rx="1" fill="#9B7D55" />
-      </svg>
-    ),
+    icon: '🚫',
     title: 'Niet meer doen!',
+    description: 'Welke voedingsmiddelen verergeren je klachten en kun je het beste (tijdelijk) vermijden?',
+  },
+  {
+    icon: '🛒',
+    title: 'Slimmer shoppen in de supermarkt',
     description:
-      'Welke voedingsmiddelen kunnen je klachten verergeren en kun je het beste (tijdelijk) vermijden?',
+      'We worden overspoeld met bewerkte producten (ultra-processed foods). Ik leer je etiketten te lezen zodat je bewuste en gezonde keuzes kunt maken.',
   },
 ]
 
@@ -104,10 +81,10 @@ export default function HomePage() {
     <>
       {/* ── Hero ── */}
       <section className="bg-beige">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl text-brown-gold leading-tight mb-6">
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-brown-gold leading-tight mb-6">
                 Jouw herstel begint hier, met voeding die bij jou past
               </h1>
               <p className="font-body text-text-medium text-base leading-relaxed mb-8 max-w-lg">
@@ -122,8 +99,7 @@ export default function HomePage() {
                 Boek jouw consult!
               </Link>
             </div>
-
-            <div className="relative h-[420px] sm:h-[520px] lg:h-[620px] rounded-2xl overflow-hidden">
+            <div className="relative h-[420px] sm:h-[520px] lg:h-[600px] rounded-2xl overflow-hidden">
               <Image
                 src="/images/hero.jpg"
                 alt="Annick Rozendaal op de markt"
@@ -137,10 +113,10 @@ export default function HomePage() {
       </section>
 
       {/* ── De kracht van voeding ── */}
-      <section className="bg-beige py-20 lg:py-28">
+      <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="relative h-[380px] sm:h-[460px] rounded-2xl overflow-hidden order-2 lg:order-1">
+            <div className="relative h-[360px] sm:h-[440px] rounded-2xl overflow-hidden order-2 lg:order-1">
               <Image
                 src="/images/kracht-voeding.jpg"
                 alt="Boodschappentas met verse groenten op de markt"
@@ -148,9 +124,8 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-
             <div className="border-l-4 border-blue-accent pl-8 order-1 lg:order-2">
-              <h2 className="font-heading text-4xl sm:text-5xl text-blue-accent font-semibold mb-6">
+              <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-6">
                 De kracht van voeding
               </h2>
               <p className="font-body text-text-medium leading-relaxed mb-4">
@@ -173,29 +148,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Trajecten preview ── */}
-      <section className="bg-beige py-20 lg:py-28">
+      {/* ── Trajecten + Wat jij altijd leert ── */}
+      <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-[80px] sm:text-[100px] lg:text-[120px] leading-none text-terracotta font-bold mb-10">
+
+          {/* Trajecten */}
+          <h2 className="font-heading text-[72px] sm:text-[96px] lg:text-[112px] leading-none text-terracotta font-bold mb-10">
             Trajecten
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-            {/* Left: intro + button */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start mb-16">
             <div className="lg:col-span-1">
               <p className="font-body text-text-medium text-sm leading-relaxed mb-8">
-                Ik bied drie soorten trajecten aan waarmee we samen jouw gezondheidsdoelen gaan
-                proberen te bereiken. Bij alle trajecten sta ik 24/7 voor je klaar om je te
-                helpen bij al jouw vragen. Want net als ik weet ik dat je de hele dag met
-                voeding bezig bent en juist die kleine keuzes kunnen het verschil maken.
+                Ik bied twee trajecten aan waarmee we samen jouw gezondheidsdoelen gaan proberen
+                te bereiken. Bij beide trajecten sta ik 24/7 voor je klaar om je te helpen bij
+                al jouw vragen.
               </p>
               <Link href="/trajecten" className="btn-terracotta">
-                Ontdek alle trajecten
+                Ontdek de trajecten
               </Link>
             </div>
 
-            {/* Right: 3 cards */}
-            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6 items-stretch">
+            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
               {trajecten.map((t) => (
                 <div
                   key={t.slug}
@@ -224,43 +198,39 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ── Wat jij gaat leren ── */}
-      <section className="bg-beige-dark py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl sm:text-4xl text-blue-accent font-semibold text-center mb-14">
-            Wat jij gaat leren:
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            {leerpunten.map((punt) => (
-              <div key={punt.title} className="text-center">
-                <div className="mb-4">{punt.icon}</div>
-                <h3 className="font-heading text-xl text-blue-accent font-semibold mb-3">
-                  {punt.title}
-                </h3>
-                <p className="font-body text-text-medium text-sm leading-relaxed">
-                  {punt.description}
-                </p>
-              </div>
-            ))}
+          {/* Wat jij altijd leert — compacte strip */}
+          <div className="border-t border-beige-dark pt-12">
+            <p className="font-body text-xs uppercase tracking-widest text-brown-light mb-8">
+              Wat jij sowieso gaat leren
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+              {leerpunten.map((punt) => (
+                <div key={punt.title}>
+                  <span className="text-2xl block mb-2">{punt.icon}</span>
+                  <h4 className="font-body font-semibold text-text-dark text-sm mb-1">
+                    {punt.title}
+                  </h4>
+                  <p className="font-body text-text-medium text-xs leading-relaxed">
+                    {punt.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
       </section>
 
       {/* ── Ervaringen ── */}
-      <section className="bg-beige py-20 lg:py-28">
+      <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-[80px] sm:text-[100px] lg:text-[120px] leading-none text-blue-accent font-bold mb-12">
+          <h2 className="font-heading text-[72px] sm:text-[96px] lg:text-[112px] leading-none text-blue-accent font-bold mb-12">
             Ervaringen
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {ervaringen.map((e, i) => (
-              <div
-                key={i}
-                className="bg-white/40 rounded-2xl p-8 border border-beige-dark flex flex-col"
-              >
+              <div key={i} className="bg-white/40 rounded-2xl p-8 border border-beige-dark flex flex-col">
                 <p className="font-body text-text-medium leading-relaxed mb-6 flex-grow">
                   &ldquo;{e.quote}&rdquo;
                 </p>
