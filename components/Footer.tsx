@@ -24,7 +24,7 @@ export default function Footer() {
               Anna Foods
             </Link>
             <p className="font-body text-[10px] text-text-medium/60 mt-0.5 tracking-wide">
-              Voedingswetenschapper&nbsp;·&nbsp;Diëtist & orth. therapeut&nbsp;·&nbsp;Insider
+              Voedingswetenschapper&nbsp;·&nbsp;Diëtist &amp; orthomoleculair therapeut&nbsp;·&nbsp;Insider
             </p>
           </div>
 

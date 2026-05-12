@@ -40,7 +40,7 @@ export default function Navigation() {
               Anna Foods
             </span>
             <span className="font-body text-[10px] text-text-medium/60 tracking-wide leading-none mt-1 block">
-              Voedingswetenschapper&nbsp;·&nbsp;Diëtist&nbsp;&amp;&nbsp;orth.&nbsp;therapeut&nbsp;·&nbsp;Insider
+              Voedingswetenschapper&nbsp;·&nbsp;Diëtist&nbsp;&amp;&nbsp;orthomoleculair&nbsp;therapeut&nbsp;·&nbsp;Insider
             </span>
           </Link>
 
