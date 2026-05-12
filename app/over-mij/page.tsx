@@ -121,16 +121,16 @@ export default function OverMijPage() {
               <VerhaalExpand />
             </div>
 
-            {/* Rechts: twee tijdlijnen gestapeld */}
-            <div className="lg:col-span-2 space-y-10">
+            {/* Rechts: twee tijdlijnen naast elkaar */}
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
               <div>
-                <p className="font-body text-xs uppercase tracking-widest text-blue-accent mb-2">
+                <p className="font-body text-xs uppercase tracking-widest text-blue-accent mb-3">
                   Opleidingen
                 </p>
                 <VerticaleTijdlijn items={opleidingen} kleur="bg-blue-accent" />
               </div>
               <div>
-                <p className="font-body text-xs uppercase tracking-widest text-terracotta mb-2">
+                <p className="font-body text-xs uppercase tracking-widest text-terracotta mb-3">
                   Ervaringen
                 </p>
                 <VerticaleTijdlijn items={ervaringen} kleur="bg-terracotta" />
