@@ -147,6 +147,11 @@ export default function HomePage() {
       <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+          <div className="border-t-2 border-terracotta pt-8 mb-2">
+            <p className="font-body text-xs uppercase tracking-widest text-terracotta">
+              Mijn aanbod
+            </p>
+          </div>
           <h2 className="font-heading text-[72px] sm:text-[96px] lg:text-[112px] leading-none text-terracotta font-bold mb-10">
             Trajecten
           </h2>
