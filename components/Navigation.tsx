@@ -29,7 +29,7 @@ export default function Navigation() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-[#d0c4b5] transition-shadow duration-200 ${
+      className={`sticky top-0 z-50 bg-beige-deeper transition-shadow duration-200 ${
         scrolled ? 'shadow-sm' : ''
       }`}
     >
