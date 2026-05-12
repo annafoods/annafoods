@@ -24,6 +24,7 @@ const config: Config = {
       fontFamily: {
         heading: ['var(--font-cormorant)', 'Georgia', 'serif'],
         body: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        logo: ['var(--font-playfair)', 'Georgia', 'serif'],
       },
     },
   },
