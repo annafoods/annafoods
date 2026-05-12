@@ -106,12 +106,8 @@ export default function OverMijPage() {
       </section>
 
       {/* ── Mijn achtergrond + twee tijdlijnen ── */}
-      <section className="bg-beige-dark py-14 lg:py-20 relative overflow-hidden">
-        <p className="absolute bottom-0 left-0 font-heading font-bold text-[120px] sm:text-[180px] leading-none text-brown-gold/[0.06] whitespace-nowrap select-none pointer-events-none">
-          food for thought
-        </p>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-beige-dark py-14 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Links: verhaal */}
             <div>
