@@ -1,8 +1,43 @@
 import Link from 'next/link'
 
+const credentials = [
+  {
+    icon: '🎓',
+    title: 'MSc Human Nutrition',
+    sub: 'University of Glasgow · Voedingswetenschap op biochemisch niveau',
+  },
+  {
+    icon: '🥗',
+    title: 'Diëtist & orthomoleculair therapeut',
+    sub: 'Persoonlijk advies op maat, wetenschappelijk én holistisch',
+  },
+  {
+    icon: '🏭',
+    title: 'Food Product Developer',
+    sub: 'Werkte bij Danone & Abbot Kinneys · Weet wat er écht in producten zit',
+  },
+]
+
 export default function Footer() {
   return (
     <footer className="bg-beige-deeper">
+      {/* ── Credentials strip ── */}
+      <div className="border-t border-beige-dark bg-beige">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {credentials.map((c) => (
+              <div key={c.title} className="flex items-start gap-4">
+                <span className="text-2xl mt-0.5">{c.icon}</span>
+                <div>
+                  <p className="font-body font-semibold text-text-dark text-sm">{c.title}</p>
+                  <p className="font-body text-text-medium text-xs leading-relaxed mt-0.5">{c.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* ── Booking CTA ── */}
       <div className="max-w-2xl mx-auto px-4 py-20 text-center">
         <h2 className="font-heading text-5xl sm:text-6xl text-brown-gold font-semibold mb-4">
@@ -19,9 +54,14 @@ export default function Footer() {
       {/* ── Bottom bar ── */}
       <div className="border-t border-beige-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <Link href="/" className="font-heading text-lg text-brown-gold">
-            Anna Foods
-          </Link>
+          <div>
+            <Link href="/" className="font-heading text-lg text-brown-gold block">
+              Anna Foods
+            </Link>
+            <p className="font-body text-xs text-text-medium/60 mt-0.5">
+              Wetenschapper · Diëtist · Insider
+            </p>
+          </div>
 
           <div className="flex items-center gap-6 font-body text-sm text-text-medium">
             <a href="tel:+31618382828" className="hover:text-blue-accent transition-colors">
