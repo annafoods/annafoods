@@ -69,14 +69,16 @@ export default function OverMijPage() {
                 </p>
                 <p>
                   Tijdens mijn studententijd werden mijn klachten erger. Mijn buik was vaak
-                  opgeblazen en daarnaast kreeg ik last van heftige acne. Pas toen ik overstapte
-                  op een plantaardig voedingspatroon — met veel groenten, fruit, peulvruchten en
-                  noten, en minder suiker — begon ik me beter te voelen.
+                  opgeblazen en daarnaast kreeg ik last van heftige acne. Ik probeerde van alles,
+                  maar niets hielp echt. Pas toen ik overstapte op een plantaardig
+                  voedingspatroon, met veel groenten, fruit, peulvruchten en noten, en minder
+                  suiker en geraffineerde koolhydraten, begon ik me beter te voelen.
                 </p>
                 <p>
                   Ook bracht ik meer balans in mijn leven door yoga en ontspanning. Ik stopte
-                  met de anticonceptiepil en Roaccutane, en langzaam werd mijn huid rustiger en
-                  namen mijn buikklachten af. Eindelijk kreeg ik mijn energie terug!
+                  met de anticonceptiepil en het slikken van Roaccutane (acne remmer), en
+                  langzaam maar zeker werd mijn huid rustiger en namen mijn buikklachten af.
+                  Eindelijk kreeg ik mijn energie terug!
                 </p>
               </div>
               <Link href="/contact" className="btn-terracotta mt-8 inline-block">
