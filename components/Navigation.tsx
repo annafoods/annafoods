@@ -36,7 +36,7 @@ export default function Navigation() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-[72px]">
           <Link href="/" className="group">
-            <span className="font-heading text-xl text-brown-gold font-semibold tracking-wide block leading-tight">
+            <span className="font-heading text-3xl text-brown-gold font-semibold tracking-wide block leading-tight">
               Anna Foods
             </span>
             <span className="font-body text-[10px] text-text-medium/60 tracking-wide leading-none mt-1 block">
