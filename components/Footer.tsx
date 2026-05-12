@@ -3,8 +3,8 @@ import Link from 'next/link'
 const credentials = [
   {
     icon: '🎓',
-    title: 'MSc Human Nutrition',
-    sub: 'University of Glasgow · Voedingswetenschap op biochemisch niveau',
+    title: 'Voedingswetenschapper',
+    sub: 'MSc Human Nutrition · University of Glasgow',
   },
   {
     icon: '🥗',
