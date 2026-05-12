@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import VerhaalExpand from './VerhaalExpand'
 
 export const metadata: Metadata = {
   title: 'Over mij',
@@ -44,7 +45,7 @@ const ervaringen = [
 export default function OverMijPage() {
   return (
     <>
-      {/* ── Hero: foto links, tekst rechts ── */}
+      {/* ── Hero ── */}
       <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -62,29 +63,20 @@ export default function OverMijPage() {
               <div className="space-y-4 font-body text-text-medium leading-relaxed">
                 <p>
                   Gezond eten kreeg ik van huis uit mee, en bewuste keuzes maken voelde altijd
-                  goed. Toch had ik op jonge leeftijd regelmatig last van buikpijn — al snel
-                  werd mij verteld dat ik waarschijnlijk PDS had, maar dat voelde niet als een
-                  echte oplossing.
+                  goed. Toch had ik op jonge leeftijd regelmatig last van buikpijn. Al snel werd
+                  mij verteld dat ik waarschijnlijk een prikkelbare darm syndroom (PDS) had,
+                  maar dat voelde niet als een echte oplossing.
                 </p>
                 <p>
-                  Tijdens mijn studententijd werden mijn klachten erger: een opgeblazen buik en
-                  heftige acne. Pas toen ik overstapte op een plantaardig voedingspatroon —
-                  meer groenten, fruit, peulvruchten en minder suiker — begon ik me echt beter
-                  te voelen. Ik stopte met de anticonceptiepil en Roaccutane, bracht meer balans
-                  via yoga en ontspanning, en eindelijk kreeg ik mijn energie terug!
+                  Tijdens mijn studententijd werden mijn klachten erger. Mijn buik was vaak
+                  opgeblazen en daarnaast kreeg ik last van heftige acne. Pas toen ik overstapte
+                  op een plantaardig voedingspatroon — met veel groenten, fruit, peulvruchten en
+                  noten, en minder suiker — begon ik me beter te voelen.
                 </p>
                 <p>
-                  Na mijn studie voeding &amp; diëtetiek volgde ik de Master Human Nutrition in
-                  Glasgow, waar ik leerde hoe voedselkeuzes onze biochemie beïnvloeden. Tijdens
-                  mijn afstudeeronderzoek bewees omega-3 spierverlies bij 65-plussers aanzienlijk
-                  te vertragen — dat liet me opnieuw zien hoe krachtig voeding écht is.
-                </p>
-                <p>
-                  Als food product developer bij Danone en Abbot Kinneys leerde ik de
-                  voedingsindustrie van binnenuit kennen. Nu gebruik ik die kennis om jou te
-                  helpen etiketten te lezen, verborgen suikers te herkennen en bewuste keuzes
-                  te maken. Voeding is een krachtig middel voor herstel — dat besef drijft
-                  alles wat ik doe.
+                  Ook bracht ik meer balans in mijn leven door yoga en ontspanning. Ik stopte
+                  met de anticonceptiepil en Roaccutane, en langzaam werd mijn huid rustiger en
+                  namen mijn buikklachten af. Eindelijk kreeg ik mijn energie terug!
                 </p>
               </div>
               <Link href="/contact" className="btn-terracotta mt-8 inline-block">
@@ -95,47 +87,70 @@ export default function OverMijPage() {
         </div>
       </section>
 
-      {/* ── Food for thought + Opleidingen & Ervaringen ── */}
+      {/* ── 3-kolom: verhaal + opleidingen + ervaringen ── */}
       <section className="bg-beige-dark py-14 lg:py-20 relative overflow-hidden">
         {/* Watermark */}
-        <p className="absolute bottom-0 left-0 font-heading font-bold text-[120px] sm:text-[160px] leading-none text-brown-gold/[0.06] whitespace-nowrap select-none pointer-events-none -mb-6">
+        <p className="absolute bottom-0 left-0 font-heading font-bold text-[120px] sm:text-[180px] leading-none text-brown-gold/[0.06] whitespace-nowrap select-none pointer-events-none">
           food for thought
         </p>
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="text-center">
-              <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+            {/* 1/3: Verhaal */}
+            <div>
+              <h2 className="font-heading text-2xl text-brown-gold font-semibold mb-6">
+                Mijn achtergrond
+              </h2>
+              <VerhaalExpand />
+            </div>
+
+            {/* 1/3: Opleidingen */}
+            <div>
+              <h2 className="font-heading text-2xl text-blue-accent font-semibold mb-6">
                 Opleidingen
               </h2>
               <div className="space-y-5">
                 {opleidingen.map((o) => (
-                  <div key={o.titel}>
-                    <p className="font-body text-text-medium text-sm">
-                      {o.jaar} – <strong className="text-text-dark">{o.titel}</strong>{o.organisatie && ` bij ${o.organisatie}`}
-                    </p>
-                    {o.detail && <p className="font-body text-text-medium/70 text-xs italic mt-0.5">{o.detail}</p>}
+                  <div key={o.titel} className="flex gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="w-2 h-2 rounded-full bg-terracotta mt-1.5 shrink-0" />
+                      <div className="w-px flex-1 bg-beige-deeper mt-1.5" />
+                    </div>
+                    <div className="pb-5">
+                      <span className="font-body text-[11px] text-brown-light uppercase tracking-widest">{o.jaar}</span>
+                      <p className="font-body text-sm font-semibold text-text-dark mt-0.5">{o.titel}</p>
+                      <p className="font-body text-xs text-text-medium">{o.organisatie}</p>
+                      {o.detail && <p className="font-body text-[11px] text-text-medium/70 italic mt-0.5">{o.detail}</p>}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="text-center">
-              <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-8">
+            {/* 1/3: Ervaringen */}
+            <div>
+              <h2 className="font-heading text-2xl text-blue-accent font-semibold mb-6">
                 Ervaringen
               </h2>
               <div className="space-y-5">
                 {ervaringen.map((e) => (
-                  <div key={e.titel + e.jaar}>
-                    <p className="font-body text-text-medium text-sm">
-                      {e.jaar} – <strong className="text-text-dark">{e.titel}</strong>
-                      {e.organisatie && ` bij ${e.organisatie}`}
-                    </p>
-                    {e.detail && <p className="font-body text-text-medium/70 text-xs italic mt-0.5">{e.detail}</p>}
+                  <div key={e.titel + e.jaar} className="flex gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="w-2 h-2 rounded-full bg-brown-gold mt-1.5 shrink-0" />
+                      <div className="w-px flex-1 bg-beige-deeper mt-1.5" />
+                    </div>
+                    <div className="pb-5">
+                      <span className="font-body text-[11px] text-brown-light uppercase tracking-widest">{e.jaar}</span>
+                      <p className="font-body text-sm font-semibold text-text-dark mt-0.5">{e.titel}</p>
+                      {e.organisatie && <p className="font-body text-xs text-text-medium">{e.organisatie}</p>}
+                      {e.detail && <p className="font-body text-[11px] text-text-medium/70 italic mt-0.5">{e.detail}</p>}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -146,7 +161,6 @@ export default function OverMijPage() {
           <h2 className="font-heading text-5xl sm:text-6xl text-blue-accent font-bold mb-10">
             Meer over mij
           </h2>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-4 font-body text-text-medium leading-relaxed">
               <p>
@@ -167,7 +181,6 @@ export default function OverMijPage() {
               </p>
             </div>
 
-            {/* Foto grid */}
             <div className="grid grid-cols-4 gap-2">
               {[
                 { span: 'col-span-1 row-span-2', h: 'aspect-[3/4]' },
@@ -182,7 +195,6 @@ export default function OverMijPage() {
                 { span: 'col-span-1', h: 'aspect-square' },
               ].map((cell, i) => (
                 <div key={i} className={`${cell.span} relative bg-beige-dark rounded-lg overflow-hidden ${cell.h} flex items-center justify-center`}>
-                  {/* <Image src={`/images/prive-${i+1}.jpg`} alt="Annick" fill className="object-cover" /> */}
                   <p className="text-xs text-text-medium/40 font-body">📸</p>
                 </div>
               ))}
