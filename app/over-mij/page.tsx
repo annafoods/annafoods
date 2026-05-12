@@ -9,63 +9,78 @@ export const metadata: Metadata = {
     'Leer Annick kennen — orthomoleculair diëtist met een MSc Human Nutrition van de Universiteit van Glasgow en een passie voor de kracht van voeding.',
 }
 
-// Chronologisch samengevoegd (oud → nieuw)
-const tijdlijn = [
+const opleidingen = [
   {
     jaar: '2012 – 2016',
     titel: 'BSc Voeding & Diëtetiek',
     sub: 'Hanze Hogeschool Groningen · Toegepaste psychologie',
-    type: 'opleiding',
-  },
-  {
-    jaar: '2016',
-    titel: 'Stagiair Diëtist',
-    sub: 'Diabetes Fonds',
-    type: 'ervaring',
   },
   {
     jaar: '2017 – 2018',
     titel: 'MSc Human Nutrition',
     sub: 'University of Glasgow · Cijfer 8 · Obesity & weight management',
-    type: 'opleiding',
-  },
-  {
-    jaar: '2018',
-    titel: 'Wetenschappelijk onderzoek',
-    sub: 'Omega-3 & spierfunctie bij 65+ · Gepubliceerd, cijfer 8,5',
-    type: 'ervaring',
-  },
-  {
-    jaar: '2018 – 2019',
-    titel: 'Medical Specialist',
-    sub: 'Danone',
-    type: 'ervaring',
-  },
-  {
-    jaar: '2021 – 2024',
-    titel: 'Food Product Developer',
-    sub: 'Abbot Kinneys',
-    type: 'ervaring',
   },
   {
     jaar: '2024',
     titel: 'Orthomoleculaire therapie Gevorderd',
     sub: 'Ortho Health Foundation',
-    type: 'opleiding',
-  },
-  {
-    jaar: '2024',
-    titel: 'Vrijwilligerswerk voedingsprojecten',
-    sub: 'Oeganda',
-    type: 'ervaring',
-  },
-  {
-    jaar: '2025',
-    titel: 'Food Product Developer',
-    sub: 'Kara-Tunga',
-    type: 'ervaring',
   },
 ]
+
+const ervaringen = [
+  { jaar: '2016', titel: 'Stagiair Diëtist', sub: 'Diabetes Fonds' },
+  { jaar: '2018', titel: 'Wetenschappelijk onderzoek', sub: 'Omega-3 & spierfunctie bij 65+ · Gepubliceerd, cijfer 8,5' },
+  { jaar: '2018 – 2019', titel: 'Medical Specialist', sub: 'Danone' },
+  { jaar: '2021 – 2024', titel: 'Food Product Developer', sub: 'Abbot Kinneys' },
+  { jaar: '2024', titel: 'Vrijwilligerswerk voedingsprojecten', sub: 'Oeganda' },
+  { jaar: '2025', titel: 'Food Product Developer', sub: 'Kara-Tunga' },
+]
+
+type TijdlijnItem = { jaar: string; titel: string; sub: string }
+
+function HorizontaleTijdlijn({ items, kleur }: { items: TijdlijnItem[]; kleur: string }) {
+  return (
+    <>
+      {/* Desktop: horizontaal */}
+      <div className="hidden lg:block relative pt-4 pb-16">
+        <div className="absolute top-[11px] left-0 right-0 h-px bg-beige-deeper" />
+        <div className="flex justify-between relative">
+          {items.map((item, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center"
+              style={{ width: `${100 / items.length}%` }}
+            >
+              <div className={`w-2.5 h-2.5 rounded-full shrink-0 z-10 ${kleur}`} />
+              <div className={`px-1 text-center ${i % 2 === 0 ? 'mt-4' : 'order-first mb-4'}`}>
+                <p className="font-body text-[10px] text-brown-light whitespace-nowrap">{item.jaar}</p>
+                <p className="font-body text-xs font-semibold text-text-dark leading-tight mt-0.5">{item.titel}</p>
+                <p className="font-body text-[10px] text-text-medium leading-snug mt-0.5">{item.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobiel: verticaal */}
+      <div className="lg:hidden space-y-4">
+        {items.map((item, i) => (
+          <div key={i} className="flex gap-3">
+            <div className="flex flex-col items-center">
+              <div className={`w-2.5 h-2.5 rounded-full shrink-0 mt-1 ${kleur}`} />
+              <div className="w-px flex-1 bg-beige-deeper mt-1" />
+            </div>
+            <div className="pb-4">
+              <p className="font-body text-[11px] text-brown-light uppercase tracking-widest">{item.jaar}</p>
+              <p className="font-body text-sm font-semibold text-text-dark">{item.titel}</p>
+              <p className="font-body text-xs text-text-medium">{item.sub}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
 
 export default function OverMijPage() {
   return (
@@ -74,7 +89,6 @@ export default function OverMijPage() {
       <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Profielfoto */}
             <div className="relative h-[500px] sm:h-[580px] rounded-2xl overflow-hidden">
               <Image
                 src="/images/profielfoto.png"
@@ -84,8 +98,6 @@ export default function OverMijPage() {
                 priority
               />
             </div>
-
-            {/* Tekst */}
             <div className="border-l-2 border-blue-accent pl-8 pt-2">
               <h1 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold leading-tight mb-6">
                 Mijn reis met voeding als kompas
@@ -119,80 +131,46 @@ export default function OverMijPage() {
         </div>
       </section>
 
-      {/* ── Verhaal + Horizontale tijdlijn ── */}
+      {/* ── Mijn achtergrond + twee tijdlijnen ── */}
       <section className="bg-beige-dark py-14 lg:py-20 relative overflow-hidden">
-        {/* Watermark */}
         <p className="absolute bottom-0 left-0 font-heading font-bold text-[120px] sm:text-[180px] leading-none text-brown-gold/[0.06] whitespace-nowrap select-none pointer-events-none">
           food for thought
         </p>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Verhaal */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-16">
-            <div className="lg:col-span-1">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-12">
+            <div>
               <h2 className="font-heading text-2xl text-brown-gold font-semibold mb-6">
                 Mijn achtergrond
               </h2>
               <VerhaalExpand />
             </div>
-            <div className="lg:col-span-2 flex items-center">
-              <div className="w-full">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="flex items-center gap-2 font-body text-xs text-text-medium">
-                    <span className="w-2.5 h-2.5 rounded-full bg-blue-accent inline-block" /> Opleiding
-                  </span>
-                  <span className="flex items-center gap-2 font-body text-xs text-text-medium">
-                    <span className="w-2.5 h-2.5 rounded-full bg-terracotta inline-block" /> Ervaring
-                  </span>
-                </div>
+            <div className="lg:col-span-2" />
+          </div>
 
-                {/* Horizontale tijdlijn — desktop */}
-                <div className="hidden lg:block relative">
-                  {/* Lijn */}
-                  <div className="absolute top-3 left-0 right-0 h-px bg-beige-deeper" />
-                  <div className="flex justify-between relative">
-                    {tijdlijn.map((item, i) => (
-                      <div key={i} className="flex flex-col items-center" style={{ width: `${100 / tijdlijn.length}%` }}>
-                        {/* Dot */}
-                        <div className={`w-2.5 h-2.5 rounded-full shrink-0 z-10 ${item.type === 'opleiding' ? 'bg-blue-accent' : 'bg-terracotta'}`} />
-                        {/* Label — afwisselend boven/onder */}
-                        <div className={`px-1 text-center ${i % 2 === 0 ? 'mt-4' : 'order-first mb-4'}`}>
-                          <p className="font-body text-[10px] text-brown-light whitespace-nowrap">{item.jaar}</p>
-                          <p className="font-body text-xs font-semibold text-text-dark leading-tight mt-0.5">{item.titel}</p>
-                          <p className="font-body text-[10px] text-text-medium leading-tight mt-0.5">{item.sub}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+          {/* Opleidingen tijdlijn */}
+          <div className="mb-8">
+            <p className="font-body text-xs uppercase tracking-widest text-blue-accent mb-2">
+              Opleidingen
+            </p>
+            <HorizontaleTijdlijn items={opleidingen} kleur="bg-blue-accent" />
+          </div>
 
-                {/* Verticale tijdlijn — mobiel */}
-                <div className="lg:hidden space-y-4">
-                  {tijdlijn.map((item, i) => (
-                    <div key={i} className="flex gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className={`w-2.5 h-2.5 rounded-full shrink-0 mt-1 ${item.type === 'opleiding' ? 'bg-blue-accent' : 'bg-terracotta'}`} />
-                        <div className="w-px flex-1 bg-beige-deeper mt-1" />
-                      </div>
-                      <div className="pb-4">
-                        <p className="font-body text-[11px] text-brown-light uppercase tracking-widest">{item.jaar}</p>
-                        <p className="font-body text-sm font-semibold text-text-dark">{item.titel}</p>
-                        <p className="font-body text-xs text-text-medium">{item.sub}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+          {/* Ervaringen tijdlijn */}
+          <div>
+            <p className="font-body text-xs uppercase tracking-widest text-terracotta mb-2">
+              Ervaringen
+            </p>
+            <HorizontaleTijdlijn items={ervaringen} kleur="bg-terracotta" />
           </div>
         </div>
       </section>
+
       {/* ── Kwaliteit staat centraal ── */}
       <section className="bg-beige py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-
-            {/* Tekst */}
             <div>
               <h2 className="font-heading text-4xl sm:text-5xl text-blue-accent font-semibold mb-6">
                 Kwaliteit staat centraal
@@ -214,19 +192,13 @@ export default function OverMijPage() {
                 </p>
               </div>
             </div>
-
-            {/* Registraties & beroepsverenigingen */}
             <div className="space-y-8">
               <div>
                 <h3 className="font-heading text-2xl text-brown-gold font-semibold mb-4">
                   Registraties
                 </h3>
                 <ul className="space-y-2">
-                  {[
-                    '[Registratie 1 — bijv. BIG-register Diëtist]',
-                    '[Registratie 2]',
-                    '[Registratie 3]',
-                  ].map((item) => (
+                  {['[Registratie 1 — bijv. BIG-register Diëtist]', '[Registratie 2]', '[Registratie 3]'].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm">
                       <span className="text-terracotta mt-1 shrink-0">✓</span>
                       {item}
@@ -234,17 +206,12 @@ export default function OverMijPage() {
                   ))}
                 </ul>
               </div>
-
               <div>
                 <h3 className="font-heading text-2xl text-brown-gold font-semibold mb-4">
                   Beroepsverenigingen
                 </h3>
                 <ul className="space-y-2">
-                  {[
-                    '[Vereniging 1 — bijv. MBOG]',
-                    '[Vereniging 2]',
-                    '[Vereniging 3]',
-                  ].map((item) => (
+                  {['[Vereniging 1 — bijv. MBOG]', '[Vereniging 2]', '[Vereniging 3]'].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm">
                       <span className="text-blue-accent mt-1 shrink-0">✓</span>
                       {item}
@@ -253,7 +220,6 @@ export default function OverMijPage() {
                 </ul>
               </div>
             </div>
-
           </div>
         </div>
       </section>
