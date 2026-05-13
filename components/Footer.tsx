@@ -13,21 +13,21 @@ export default function Footer() {
             Plan een gratis kennismakingsgesprek van 15 minuten en ontdek welk traject bij jou
             past. Geen verplichtingen.
           </p>
-          <Link href="/contact" className="btn-terracotta text-base px-10 py-4">
-            Plan een gratis kennismaking
-          </Link>
-          <div className="mt-6 pt-6 border-t border-beige-dark/40 max-w-md mx-auto">
-            <p className="font-body text-text-medium text-sm leading-relaxed mb-3">
-              Wil je eerst zelf beginnen? Download gratis het mini plan — do's en don'ts voor
-              een gezonde leefstijl — en ga zelf aan de slag.
-            </p>
+          {/* Twee CTA's naast elkaar */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
+            <Link href="/contact" className="btn-terracotta text-base px-10 py-4">
+              Plan een gratis kennismaking
+            </Link>
             <a
               href="/downloads/mini-plan.pdf"
-              className="font-body text-sm text-terracotta hover:text-terracotta-dark font-medium underline underline-offset-4 transition-colors"
+              className="inline-block px-8 py-4 rounded-full font-body font-medium text-base border-2 border-terracotta text-terracotta hover:bg-terracotta hover:text-white transition-all duration-200"
             >
-              Download gratis het mini plan →
+              Download gratis mini plan
             </a>
           </div>
+          <p className="font-body text-text-medium/60 text-xs mt-4">
+            Wil je eerst zelf aan de slag? Do's en don'ts voor een gezonde leefstijl.
+          </p>
         </div>
       </div>
 
