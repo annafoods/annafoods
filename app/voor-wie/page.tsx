@@ -36,41 +36,41 @@ export default function VoorWiePage() {
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Klachten — uitgelicht */}
-            <div className="bg-beige-dark rounded-2xl p-8">
+            {/* Klachten */}
+            <div>
               <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-6">
                 Herken jij dit?
               </h2>
-              <div className="space-y-3">
+              <ul className="space-y-3 mb-8">
                 {klachten.map((k) => (
-                  <div key={k} className="flex items-center gap-3 bg-beige rounded-xl px-4 py-3">
-                    <span className="w-2.5 h-2.5 rounded-full bg-terracotta shrink-0" />
-                    <span className="font-body text-text-dark font-medium text-sm">{k}</span>
-                  </div>
+                  <li key={k} className="flex items-start gap-3 font-body text-text-medium text-base leading-relaxed">
+                    <span className="w-2 h-2 rounded-full bg-terracotta mt-2 shrink-0" />
+                    {k}
+                  </li>
                 ))}
-              </div>
-              <p className="font-body text-text-medium text-sm mt-6 leading-relaxed">
+              </ul>
+              <p className="font-body text-text-medium leading-relaxed mb-8">
                 Dan ben je bij mij aan het juiste adres. Samen kijken we wat jouw lichaam
                 nodig heeft om weer in balans te komen.
               </p>
-              <Link href="/contact" className="btn-terracotta mt-6 inline-block">
+              <Link href="/contact" className="btn-terracotta">
                 Plan een gratis kennismaking
               </Link>
             </div>
 
             {/* Resultaat */}
-            <div className="bg-beige-dark rounded-2xl p-8">
+            <div>
               <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-6">
                 Wat levert het op?
               </h2>
-              <div className="space-y-3">
+              <ul className="space-y-3">
                 {resultaten.map((r) => (
-                  <div key={r} className="flex items-center gap-3 bg-beige rounded-xl px-4 py-3">
-                    <span className="text-terracotta shrink-0">✓</span>
-                    <span className="font-body text-text-dark font-medium text-sm">{r}</span>
-                  </div>
+                  <li key={r} className="flex items-start gap-3 font-body text-text-medium text-base leading-relaxed">
+                    <span className="text-terracotta mt-1 shrink-0">✓</span>
+                    {r}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>
