@@ -69,16 +69,8 @@ export default function TrajectenPage() {
             {trajecten.map((t) => (
               <div
                 key={t.id}
-                className="bg-beige-dark rounded-2xl overflow-hidden flex flex-col"
+                className={`bg-white/40 rounded-2xl border border-beige-dark border-l-4 ${t.featured ? 'border-l-terracotta' : 'border-l-blue-accent'} flex flex-col`}
               >
-                {/* Illustratie */}
-                <div className="min-h-[220px] bg-[#f5edda] flex items-center justify-center">
-                  <p className="text-text-medium/40 font-body text-sm text-center px-8">
-                    📸 Illustratie — {t.title}
-                  </p>
-                </div>
-
-                {/* Details */}
                 <div className="p-8 flex flex-col flex-grow">
                   <div className="flex items-start justify-between mb-2">
                     <h2 className="font-heading text-4xl text-terracotta font-semibold">
@@ -118,7 +110,7 @@ export default function TrajectenPage() {
                   <Link href="/contact" className="inline-block bg-blue-accent text-white px-8 py-3 rounded-full font-body font-medium text-sm hover:bg-blue-light transition-colors">
                     Plan nu je eerste consult
                   </Link>
-                </div>
+              </div>
               </div>
             ))}
           </div>
