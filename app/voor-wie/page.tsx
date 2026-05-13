@@ -112,7 +112,7 @@ export default function VoorWiePage() {
               </div>
 
               <div>
-                <h2 className="font-heading text-4xl text-blue-accent font-semibold mb-4">
+                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-4">
                   Mijn missie
                 </h2>
                 <p className="font-body text-text-medium leading-relaxed">
@@ -124,7 +124,7 @@ export default function VoorWiePage() {
               </div>
 
               <div>
-                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-5">
+                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-4">
                   Mijn belofte
                 </h2>
                 <ul className="space-y-3">
