@@ -4,30 +4,38 @@ export default function Footer() {
   return (
     <>
       {/* ── Klaar om te beginnen — beige-deeper zodat het uitspringt ── */}
-      <div className="bg-beige-deeper py-20 text-center">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="font-heading text-5xl sm:text-6xl text-brown-gold font-semibold mb-4">
+      <div className="bg-beige-deeper py-20">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="font-heading text-5xl sm:text-6xl text-brown-gold font-semibold mb-12 text-center">
             Klaar om te beginnen?
           </h2>
-          <p className="font-body text-text-medium mb-8">
-            Plan een gratis kennismakingsgesprek van 15 minuten en ontdek welk traject bij jou
-            past. Geen verplichtingen.
-          </p>
-          {/* Twee CTA's naast elkaar */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
-            <Link href="/contact" className="btn-terracotta text-base px-10 py-4">
-              Plan een gratis kennismaking
-            </Link>
-            <a
-              href="/downloads/mini-plan.pdf"
-              className="inline-block px-8 py-4 rounded-full font-body font-medium text-base border-2 border-terracotta text-terracotta hover:bg-terracotta hover:text-white transition-all duration-200"
-            >
-              Download gratis mini plan
-            </a>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Kennismaking */}
+            <div className="bg-beige/50 rounded-2xl p-8 flex flex-col items-start">
+              <p className="font-body text-text-medium leading-relaxed mb-6 flex-grow">
+                Plan een gratis kennismakingsgesprek van 30 minuten en ontdek welk traject bij
+                jou past. Geen verplichtingen.
+              </p>
+              <Link href="/contact" className="btn-terracotta">
+                Plan een gratis kennismaking
+              </Link>
+            </div>
+
+            {/* Download */}
+            <div className="bg-beige/50 rounded-2xl p-8 flex flex-col items-start">
+              <p className="font-body text-text-medium leading-relaxed mb-6 flex-grow">
+                Wil je eerst zelf aan de slag? Download gratis het mini plan met de do's en
+                don'ts voor een gezonde leefstijl.
+              </p>
+              <a
+                href="/downloads/mini-plan.pdf"
+                className="inline-block px-8 py-3 rounded-full font-body font-medium border-2 border-terracotta text-terracotta hover:bg-terracotta hover:text-white transition-all duration-200"
+              >
+                Download gratis mini plan
+              </a>
+            </div>
           </div>
-          <p className="font-body text-text-medium/60 text-xs mt-4">
-            Wil je eerst zelf aan de slag? Do's en don'ts voor een gezonde leefstijl.
-          </p>
         </div>
       </div>
 
