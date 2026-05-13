@@ -57,24 +57,29 @@ export default function TrajectenPage() {
       {/* ── Trajecten ── */}
       <section className="bg-beige pt-16 pb-8 lg:pt-24 lg:pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="font-heading text-[80px] sm:text-[110px] lg:text-[140px] leading-none text-terracotta font-bold mb-12">
+          <h1 className="font-heading text-[80px] sm:text-[110px] lg:text-[140px] leading-none text-terracotta font-bold mb-6">
             Trajecten
           </h1>
-          <div className="space-y-2">
-            {trajecten.map((t, i) => (
+          <p className="font-body text-text-medium max-w-2xl mb-12">
+            Ik bied twee trajecten aan waarmee we samen jouw gezondheidsdoelen gaan proberen
+            te bereiken. Bij beide trajecten sta ik 24/7 voor je klaar om je te helpen bij
+            al jouw vragen.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {trajecten.map((t) => (
               <div
                 key={t.id}
-                className="bg-beige-dark rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2"
+                className="bg-beige-dark rounded-2xl overflow-hidden flex flex-col"
               >
                 {/* Illustratie */}
-                <div className={`min-h-[280px] lg:min-h-[380px] bg-[#f5edda] flex items-center justify-center ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <div className="min-h-[220px] bg-[#f5edda] flex items-center justify-center">
                   <p className="text-text-medium/40 font-body text-sm text-center px-8">
                     📸 Illustratie — {t.title}
                   </p>
                 </div>
 
                 {/* Details */}
-                <div className={`p-8 lg:p-12 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div className="p-8 flex flex-col flex-grow">
                   <div className="flex items-start justify-between mb-2">
                     <h2 className="font-heading text-4xl text-terracotta font-semibold">
                       {t.title}
@@ -137,21 +142,6 @@ export default function TrajectenPage() {
               Plan een consult
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* ── Klaar om te beginnen ── */}
-      <section className="bg-beige-deeper py-16 text-center">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-4">
-            Klaar om te beginnen?
-          </h2>
-          <p className="font-body text-text-medium mb-8">
-            Plan een gratis kennismakingsgesprek van 15 minuten en ontdek welk traject bij jou past.
-          </p>
-          <Link href="/contact" className="btn-terracotta">
-            Plan een gratis kennismaking
-          </Link>
         </div>
       </section>
 
