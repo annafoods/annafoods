@@ -35,7 +35,7 @@ const resultaten = [
 export default function VoorWiePage() {
   return (
     <>
-      {/* ── Hero: klachten + foto ── */}
+      {/* ── Hero: klachten ── */}
       <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-heading text-[72px] sm:text-[96px] lg:text-[120px] leading-none text-terracotta font-bold mb-10">
@@ -43,7 +43,6 @@ export default function VoorWiePage() {
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Links */}
             <div>
               <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-6">
                 Ervaar je een van deze lichamelijke klachten?
@@ -65,26 +64,29 @@ export default function VoorWiePage() {
               </Link>
             </div>
 
-            {/* Rechts: foto */}
-            <div className="relative h-[400px] sm:h-[480px] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/P3030225.jpeg"
-                alt="Annick Rozendaal"
-                fill
-                className="object-cover object-center"
-                priority
-              />
+            <div>
+              <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-6">
+                Je ontdekt…
+              </h2>
+              <ul className="space-y-3">
+                {ontdekt.map((item) => (
+                  <li key={item} className="flex items-start gap-3 font-body text-text-medium leading-relaxed">
+                    <span className="text-terracotta mt-1 shrink-0">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Mijn aanpak + Je ontdekt ── */}
+      {/* ── Mijn aanpak + foto ── */}
       <section className="bg-beige-dark py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-5">
+              <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-6">
                 Mijn aanpak
               </h2>
               <p className="font-body text-text-medium leading-relaxed">
@@ -98,18 +100,20 @@ export default function VoorWiePage() {
               </p>
             </div>
 
+            {/* Foto volledig zichtbaar + onderschrift */}
             <div>
-              <h2 className="font-heading text-4xl text-blue-accent font-semibold mb-5">
-                Je ontdekt…
-              </h2>
-              <ul className="space-y-3">
-                {ontdekt.map((item) => (
-                  <li key={item} className="flex items-start gap-3 font-body text-text-medium leading-relaxed">
-                    <span className="text-terracotta mt-1 shrink-0">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/P3030225.jpeg"
+                  alt="Annick Rozendaal tijdens een wandelsafari in Oeganda"
+                  width={800}
+                  height={1000}
+                  className="w-full h-auto"
+                />
+              </div>
+              <p className="font-body text-xs text-text-medium/60 italic mt-3 text-center">
+                Genomen tijdens een wandelsafari in Oeganda
+              </p>
             </div>
           </div>
         </div>
