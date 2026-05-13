@@ -125,6 +125,26 @@ export default function VoorWiePage() {
                   kunnen helpen om jou het verschil te laten voelen.
                 </p>
               </div>
+
+              <div className="border-t border-beige-deeper pt-8">
+                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-5">
+                  Mijn belofte
+                </h2>
+                <ul className="space-y-3">
+                  {[
+                    'Ik ben eerlijk met je — ook als dat soms moeilijk te horen is',
+                    'Ik ben 24/7 bereikbaar via WhatsApp voor al jouw vragen',
+                    'Ik luister écht naar jou en jouw situatie',
+                    'Ik geef je een plan dat past bij wie jij bent, niet een standaard schema',
+                    'Ik sta voor jou klaar gedurende het hele traject',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm leading-relaxed">
+                      <span className="text-terracotta mt-0.5 shrink-0 text-base">↗</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
           </div>
