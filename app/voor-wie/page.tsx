@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Voor wie',
@@ -42,11 +43,12 @@ export default function VoorWiePage() {
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Links: klachten + ontdekt */}
             <div>
               <h2 className="font-heading text-3xl sm:text-4xl text-blue-accent font-semibold mb-6">
                 Ervaar je een van deze lichamelijke klachten?
               </h2>
-              <ul className="space-y-3">
+              <ul className="space-y-3 mb-6">
                 {klachten.map((k) => (
                   <li key={k} className="flex items-start gap-3 font-body text-text-medium">
                     <span className="w-2 h-2 rounded-full bg-terracotta mt-2 shrink-0" />
@@ -54,27 +56,37 @@ export default function VoorWiePage() {
                   </li>
                 ))}
               </ul>
-              <p className="font-body text-text-medium mt-6 leading-relaxed">
+              <p className="font-body text-text-medium leading-relaxed mb-8">
                 Dan ben je bij mij aan het juiste adres. Samen kijken we wat jouw lichaam
                 nodig heeft om weer in balans te komen.
               </p>
-              <Link href="/contact" className="btn-terracotta mt-8 inline-block">
+              <div className="bg-beige-dark rounded-2xl p-6 mb-8">
+                <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-4">
+                  Je ontdekt…
+                </h3>
+                <ul className="space-y-2">
+                  {ontdekt.map((item) => (
+                    <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm leading-relaxed">
+                      <span className="text-terracotta mt-1 shrink-0">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href="/contact" className="btn-terracotta inline-block">
                 Plan een gratis kennismaking
               </Link>
             </div>
 
-            <div className="bg-beige-dark rounded-2xl p-8">
-              <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-5">
-                Je ontdekt…
-              </h2>
-              <ul className="space-y-3">
-                {ontdekt.map((item) => (
-                  <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm leading-relaxed">
-                    <span className="text-terracotta mt-1 shrink-0">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            {/* Rechts: foto */}
+            <div className="relative h-[500px] sm:h-[620px] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/voor-wie.jpg"
+                alt="Annick Rozendaal in de natuur"
+                fill
+                className="object-cover object-top"
+                priority
+              />
             </div>
           </div>
         </div>
