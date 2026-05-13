@@ -72,16 +72,14 @@ export default function TrajectenPage() {
                 className={`bg-white/40 rounded-2xl border border-beige-dark border-l-4 ${t.featured ? 'border-l-terracotta' : 'border-l-blue-accent'} flex flex-col`}
               >
                 <div className="p-8 flex flex-col flex-grow">
-                  <div className="flex items-start justify-between mb-2">
-                    <h2 className="font-heading text-4xl text-terracotta font-semibold">
-                      {t.title}
-                    </h2>
-                    {t.featured && (
-                      <span className="bg-terracotta/10 text-terracotta text-xs font-body font-semibold px-3 py-1 rounded-full shrink-0 ml-4">
-                        Meest gekozen
-                      </span>
-                    )}
-                  </div>
+                  <h2 className="font-heading text-4xl text-terracotta font-semibold mb-2">
+                    {t.title}
+                  </h2>
+                  {t.featured && (
+                    <span className="inline-block bg-terracotta/10 text-terracotta text-xs font-body font-semibold px-3 py-1 rounded-full mb-3 w-fit">
+                      Meest gekozen
+                    </span>
+                  )}
 
                   <div className="flex flex-wrap gap-x-5 gap-y-1 mb-5 mt-3">
                     <span className="font-body text-xs text-text-medium">🕐 {t.consults}</span>
