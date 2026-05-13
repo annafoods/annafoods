@@ -135,8 +135,8 @@ export default function VoorWiePage() {
                     'Ik geef je een plan dat past bij wie jij bent, niet een standaard schema',
                     'Ik sta voor jou klaar gedurende het hele traject',
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm leading-relaxed">
-                      <span className="text-terracotta mt-0.5 shrink-0 text-base">↗</span>
+                    <li key={item} className="flex items-start gap-3 font-body text-text-medium leading-relaxed">
+                      <span className="text-brown-gold mt-1 shrink-0">✓</span>
                       {item}
                     </li>
                   ))}
