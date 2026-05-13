@@ -32,7 +32,7 @@ export default function VoorWiePage() {
       <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-heading text-[72px] sm:text-[96px] lg:text-[120px] leading-none text-terracotta font-bold mb-10">
-            Voor wie
+            Voor wie?
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
