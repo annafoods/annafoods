@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import DownloadBalk from '@/components/DownloadBalk'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <DownloadBalk />
       </body>
     </html>
   )
