@@ -16,6 +16,15 @@ export default function Footer() {
           <Link href="/contact" className="btn-terracotta text-base px-10 py-4">
             Plan een gratis kennismaking
           </Link>
+          <p className="font-body text-text-medium/70 text-sm mt-5">
+            Nog niet zeker?{' '}
+            <a
+              href="/downloads/mini-plan.pdf"
+              className="text-text-medium underline underline-offset-4 hover:text-brown-gold transition-colors"
+            >
+              Download eerst gratis het mini plan →
+            </a>
+          </p>
         </div>
       </div>
 
