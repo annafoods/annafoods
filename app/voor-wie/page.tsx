@@ -79,28 +79,28 @@ export default function VoorWiePage() {
       {/* ── Mijn aanpak + missie + foto ── */}
       <section className="bg-beige-dark py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-stretch">
 
-            {/* Foto */}
-            <div>
-              <div className="rounded-2xl overflow-hidden">
+            {/* Foto — smaller, 2/5 breedte */}
+            <div className="lg:col-span-2">
+              <div className="rounded-2xl overflow-hidden h-full">
                 <Image
                   src="/images/P3030225.jpeg"
-                  alt="Annick Rozendaal tijdens een wandelsafari in Oeganda"
-                  width={800}
-                  height={1000}
-                  className="w-full h-auto"
+                  alt="Annick Rozendaal"
+                  width={600}
+                  height={800}
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>
 
-            {/* Aanpak + missie */}
-            <div className="space-y-10">
+            {/* Aanpak + missie + belofte — 3/5 breedte, gelijkmatig verdeeld */}
+            <div className="lg:col-span-3 flex flex-col justify-between gap-8">
               <div>
-                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-4">
+                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-3">
                   Mijn aanpak
                 </h2>
-                <p className="font-body text-text-medium leading-relaxed">
+                <p className="font-body text-text-medium leading-relaxed text-sm">
                   Als orthomoleculair diëtist staat voor mij kwaliteit voorop. Ik kijk graag naar het
                   grotere plaatje. Voeding is een belangrijke pijler, maar ook mondgezondheid, stress,
                   slaap, ontspanning en beweging neem ik hierin mee. Ik vertaal mijn wetenschappelijke
@@ -112,10 +112,10 @@ export default function VoorWiePage() {
               </div>
 
               <div>
-                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-4">
+                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-3">
                   Mijn missie
                 </h2>
-                <p className="font-body text-text-medium leading-relaxed">
+                <p className="font-body text-text-medium leading-relaxed text-sm">
                   Mijn missie is om jou op weg te helpen naar een gezondere leefstijl waar je
                   fysiek en mentaal verschil merkt. Dit doen we samen, stap voor stap. Een aanpak
                   die past bij jouw leefstijl en bij wie jij bent. Ik weet dat eerste stapjes al
@@ -124,7 +124,7 @@ export default function VoorWiePage() {
               </div>
 
               <div>
-                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-4">
+                <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-3">
                   Mijn belofte
                 </h2>
                 <ul className="space-y-3">
@@ -147,6 +147,7 @@ export default function VoorWiePage() {
           </div>
         </div>
       </section>
+
     </>
   )
 }
