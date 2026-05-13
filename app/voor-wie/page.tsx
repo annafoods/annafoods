@@ -35,20 +35,20 @@ const resultaten = [
 export default function VoorWiePage() {
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="bg-beige pt-16 pb-12 lg:pt-24 lg:pb-16">
+      {/* ── Hero: klachten + foto ── */}
+      <section className="bg-beige py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="font-heading text-[72px] sm:text-[96px] lg:text-[120px] leading-none text-terracotta font-bold mb-8">
+          <h1 className="font-heading text-[72px] sm:text-[96px] lg:text-[120px] leading-none text-terracotta font-bold mb-10">
             Voor wie
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Links: klachten + ontdekt */}
+            {/* Links */}
             <div>
-              <h2 className="font-heading text-3xl sm:text-4xl text-blue-accent font-semibold mb-6">
+              <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-6">
                 Ervaar je een van deze lichamelijke klachten?
               </h2>
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3 mb-8">
                 {klachten.map((k) => (
                   <li key={k} className="flex items-start gap-3 font-body text-text-medium">
                     <span className="w-2 h-2 rounded-full bg-terracotta mt-2 shrink-0" />
@@ -60,42 +60,31 @@ export default function VoorWiePage() {
                 Dan ben je bij mij aan het juiste adres. Samen kijken we wat jouw lichaam
                 nodig heeft om weer in balans te komen.
               </p>
-              <div className="bg-beige-dark rounded-2xl p-6 mb-8">
-                <h3 className="font-heading text-2xl text-blue-accent font-semibold mb-4">
-                  Je ontdekt…
-                </h3>
-                <ul className="space-y-2">
-                  {ontdekt.map((item) => (
-                    <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm leading-relaxed">
-                      <span className="text-terracotta mt-1 shrink-0">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Link href="/contact" className="btn-terracotta inline-block">
+              <Link href="/contact" className="btn-terracotta">
                 Plan een gratis kennismaking
               </Link>
             </div>
 
+            {/* Rechts: foto */}
+            <div className="relative h-[400px] sm:h-[480px] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/P3030225.jpeg"
+                alt="Annick Rozendaal"
+                fill
+                className="object-cover object-center"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Mijn aanpak ── */}
+      {/* ── Mijn aanpak + Je ontdekt ── */}
       <section className="bg-beige-dark py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[420px] sm:h-[520px] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/P3030225.jpeg"
-                alt="Annick Rozendaal in de natuur"
-                fill
-                className="object-cover object-top"
-              />
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-6">
+              <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-5">
                 Mijn aanpak
               </h2>
               <p className="font-body text-text-medium leading-relaxed">
@@ -108,16 +97,30 @@ export default function VoorWiePage() {
                 jou past, rekening houdend met jouw waarden en leefstijl.
               </p>
             </div>
+
+            <div>
+              <h2 className="font-heading text-4xl text-blue-accent font-semibold mb-5">
+                Je ontdekt…
+              </h2>
+              <ul className="space-y-3">
+                {ontdekt.map((item) => (
+                  <li key={item} className="flex items-start gap-3 font-body text-text-medium leading-relaxed">
+                    <span className="text-terracotta mt-1 shrink-0">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Mijn missie + Resultaat ── */}
+      {/* ── Missie + Resultaat ── */}
       <section className="bg-beige py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="font-heading text-4xl sm:text-5xl text-blue-accent font-semibold mb-6">
+              <h2 className="font-heading text-4xl text-blue-accent font-semibold mb-5">
                 Mijn missie
               </h2>
               <p className="font-body text-text-medium leading-relaxed">
@@ -129,10 +132,10 @@ export default function VoorWiePage() {
             </div>
 
             <div>
-              <h2 className="font-heading text-4xl sm:text-5xl text-blue-accent font-semibold mb-6">
+              <h2 className="font-heading text-4xl text-blue-accent font-semibold mb-5">
                 Resultaat
               </h2>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {resultaten.map((r) => (
                   <li key={r} className="flex items-start gap-3 font-body text-text-medium">
                     <span className="text-terracotta mt-1 shrink-0">✓</span>
@@ -142,25 +145,6 @@ export default function VoorWiePage() {
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── Download mini plan ── */}
-      <section className="bg-beige-deeper py-16">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-4">
-            Benieuwd naar meer?
-          </h2>
-          <p className="font-body text-text-medium mb-8">
-            Download nu gratis een mini plan waarin ik je kort uitleg wat de do's en don'ts zijn
-            voor een gezonde leefstijl.
-          </p>
-          <a
-            href="/downloads/mini-plan.pdf"
-            className="btn-terracotta"
-          >
-            Download gratis mini plan
-          </a>
         </div>
       </section>
     </>
