@@ -123,7 +123,7 @@ export default function VoorWiePage() {
                 </p>
               </div>
 
-              <div className="border-t border-beige-deeper pt-8">
+              <div>
                 <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-5">
                   Mijn belofte
                 </h2>
