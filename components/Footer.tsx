@@ -45,27 +45,23 @@ export default function Footer() {
 
       {/* ── Footer — zelfde kleur als header ── */}
       <footer className="bg-beige border-t border-beige-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-            {/* Logo */}
-            <div>
-              <Link href="/" className="font-heading text-xl text-brown-gold block leading-tight">
-                Anna Foods
-              </Link>
-              <p className="hidden sm:block font-body text-[10px] text-text-medium/60 mt-0.5 tracking-wide">
-                Voedingswetenschapper · Diëtist &amp; orthomoleculair therapeut · Insider
-              </p>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div>
+            <Link href="/" className="font-heading text-xl text-brown-gold block leading-tight">
+              Anna Foods
+            </Link>
+            <p className="font-body text-[10px] text-text-medium/60 mt-0.5 tracking-wide">
+              Voedingswetenschapper&nbsp;·&nbsp;Diëtist &amp; orthomoleculair therapeut&nbsp;·&nbsp;Insider
+            </p>
+          </div>
 
-            {/* Contact */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 font-body text-sm text-text-medium">
-              <a href="tel:+31618382828" className="hover:text-blue-accent transition-colors">
-                +31 6 18 38 28 28
-              </a>
-              <a href="mailto:annick@annasfoodlab.com" className="hover:text-blue-accent transition-colors">
-                annick@annasfoodlab.com
-              </a>
-            </div>
+          <div className="flex items-center gap-6 font-body text-sm text-text-medium">
+            <a href="tel:+31618382828" className="hover:text-blue-accent transition-colors">
+              +31 6 18 38 28 28
+            </a>
+            <a href="mailto:annick@annasfoodlab.com" className="hover:text-blue-accent transition-colors">
+              annick@annasfoodlab.com
+            </a>
           </div>
 
           <div className="flex items-center gap-5">
@@ -87,6 +83,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
+
     </>
   )
 }
