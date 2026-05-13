@@ -29,11 +29,14 @@ export default function VoorWiePage() {
   return (
     <>
       {/* ── Hero: klachten + resultaat ── */}
-      <section className="bg-beige py-16 lg:py-24">
+      <section className="bg-beige-dark py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="font-heading text-[72px] sm:text-[96px] lg:text-[120px] leading-none text-terracotta font-bold mb-10">
+          <h1 className="font-heading text-[72px] sm:text-[96px] lg:text-[120px] leading-none text-terracotta font-bold mb-4">
             Voor wie
           </h1>
+          <p className="font-heading text-2xl sm:text-3xl text-brown-gold italic mb-12 max-w-2xl">
+            Jij verdient voeding die écht bij je past — en een plan dat werkt voor jóuw lichaam.
+          </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Klachten */}
