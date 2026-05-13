@@ -78,16 +78,6 @@ export default function VoorWiePage() {
               </Link>
             </div>
 
-            {/* Rechts: foto */}
-            <div className="relative h-[500px] sm:h-[620px] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/voor-wie.jpg"
-                alt="Annick Rozendaal in de natuur"
-                fill
-                className="object-cover object-top"
-                priority
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -95,19 +85,29 @@ export default function VoorWiePage() {
       {/* ── Mijn aanpak ── */}
       <section className="bg-beige-dark py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-6">
-              Mijn aanpak
-            </h2>
-            <p className="font-body text-text-medium leading-relaxed">
-              Als orthomoleculair diëtist staat voor mij kwaliteit voorop. Ik kijk graag naar het
-              grotere plaatje. Voeding is een belangrijke pijler, maar ook mondgezondheid, stress,
-              slaap, ontspanning en beweging neem ik hierin mee. Ik vertaal mijn wetenschappelijke
-              kennis naar praktische inzichten met een holistische visie. Betrouwbaarheid van
-              informatie vind ik heel belangrijk. Tijdens mijn consulten hecht ik waarde aan
-              verbinding en luister ik graag naar wat jij nodig hebt. Ik stel een plan op dat bij
-              jou past, rekening houdend met jouw waarden en leefstijl.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[420px] sm:h-[520px] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/P3030225.jpeg"
+                alt="Annick Rozendaal in de natuur"
+                fill
+                className="object-cover object-top"
+              />
+            </div>
+            <div>
+              <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-6">
+                Mijn aanpak
+              </h2>
+              <p className="font-body text-text-medium leading-relaxed">
+                Als orthomoleculair diëtist staat voor mij kwaliteit voorop. Ik kijk graag naar het
+                grotere plaatje. Voeding is een belangrijke pijler, maar ook mondgezondheid, stress,
+                slaap, ontspanning en beweging neem ik hierin mee. Ik vertaal mijn wetenschappelijke
+                kennis naar praktische inzichten met een holistische visie. Betrouwbaarheid van
+                informatie vind ik heel belangrijk. Tijdens mijn consulten hecht ik waarde aan
+                verbinding en luister ik graag naar wat jij nodig hebt. Ik stel een plan op dat bij
+                jou past, rekening houdend met jouw waarden en leefstijl.
+              </p>
+            </div>
           </div>
         </div>
       </section>
