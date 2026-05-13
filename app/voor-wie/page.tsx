@@ -92,9 +92,6 @@ export default function VoorWiePage() {
                   className="w-full h-auto"
                 />
               </div>
-              <p className="font-body text-xs text-text-medium/60 italic mt-3 text-center">
-                Genomen tijdens een wandelsafari in Oeganda
-              </p>
             </div>
 
             {/* Aanpak + missie */}
