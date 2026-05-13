@@ -100,7 +100,7 @@ export default function VoorWiePage() {
                 <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-3">
                   Mijn aanpak
                 </h2>
-                <p className="font-body text-text-medium leading-relaxed text-sm">
+                <p className="font-body text-text-medium leading-relaxed">
                   Als orthomoleculair diëtist staat voor mij kwaliteit voorop. Ik kijk graag naar het
                   grotere plaatje. Voeding is een belangrijke pijler, maar ook mondgezondheid, stress,
                   slaap, ontspanning en beweging neem ik hierin mee. Ik vertaal mijn wetenschappelijke
@@ -115,7 +115,7 @@ export default function VoorWiePage() {
                 <h2 className="font-heading text-4xl text-brown-gold font-semibold mb-3">
                   Mijn missie
                 </h2>
-                <p className="font-body text-text-medium leading-relaxed text-sm">
+                <p className="font-body text-text-medium leading-relaxed">
                   Mijn missie is om jou op weg te helpen naar een gezondere leefstijl waar je
                   fysiek en mentaal verschil merkt. Dit doen we samen, stap voor stap. Een aanpak
                   die past bij jouw leefstijl en bij wie jij bent. Ik weet dat eerste stapjes al
