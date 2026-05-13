@@ -42,8 +42,8 @@ export default function Navigation() {
             <span className="font-heading text-2xl sm:text-3xl text-brown-gold font-semibold tracking-wide block leading-tight">
               Anna Foods
             </span>
-            <span className="font-body text-[10px] text-text-medium/60 tracking-wide leading-none mt-0.5 block">
-              Voedingswetenschapper&nbsp;·&nbsp;Diëtist&nbsp;&amp;&nbsp;orthomoleculair&nbsp;therapeut&nbsp;·&nbsp;Insider
+            <span className="hidden sm:block font-body text-[10px] text-text-medium/60 tracking-wide leading-none mt-0.5 truncate max-w-[280px] md:max-w-none">
+              Voedingswetenschapper · Diëtist &amp; orthomoleculair therapeut · Insider
             </span>
           </Link>
 
