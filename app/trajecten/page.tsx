@@ -107,8 +107,8 @@ export default function TrajectenPage() {
                     ))}
                   </ul>
 
-                  <Link href="/contact" className="inline-block bg-blue-accent text-white px-8 py-3 rounded-full font-body font-medium text-sm hover:bg-blue-light transition-colors">
-                    Plan nu je eerste consult
+                  <Link href={`/contact?traject=${t.id}`} className="inline-block bg-blue-accent text-white px-8 py-3 rounded-full font-body font-medium text-sm hover:bg-blue-light transition-colors">
+                    Plan {t.title} →
                   </Link>
               </div>
               </div>
