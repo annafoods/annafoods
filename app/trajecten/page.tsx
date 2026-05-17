@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQ from './FAQ'
+import { client } from '@/lib/sanity'
+import { trajectenPaginaQuery, trajectenQuery } from '@/lib/queries'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Trajecten',
@@ -51,7 +55,25 @@ const trajecten = [
   },
 ]
 
-export default function TrajectenPage() {
+export default async function TrajectenPage() {
+  const [cms, sanityTrajecten] = await Promise.all([
+    client.fetch(trajectenPaginaQuery).catch(() => null),
+    client.fetch(trajectenQuery).catch(() => []),
+  ])
+
+  // Map Sanity trajecten to local format if available
+  const trajectenData = sanityTrajecten.length > 0
+    ? sanityTrajecten.map((t: { _id: string; titel: string; tagline?: string; prijs?: string; consults?: string; beschrijving?: string; inclusief?: string[]; specs?: { label: string; waarde: string }[]; meestGekozen?: boolean }) => ({
+        id: t._id,
+        title: t.titel,
+        price: t.prijs ?? '',
+        consults: t.consults ?? '',
+        specs: (t.specs ?? []).map((s) => ({ label: s.label, value: s.waarde })),
+        inclusief: t.inclusief ?? [],
+        featured: t.meestGekozen ?? false,
+      }))
+    : trajecten
+
   return (
     <>
       {/* ── Trajecten ── */}
@@ -61,12 +83,10 @@ export default function TrajectenPage() {
             Trajecten
           </h1>
           <p className="font-body text-text-medium max-w-2xl mb-12">
-            Ik bied twee trajecten aan waarmee we samen jouw gezondheidsdoelen gaan proberen
-            te bereiken. Bij beide trajecten sta ik 24/7 voor je klaar om je te helpen bij
-            al jouw vragen.
+            {cms?.heroTekst1 ?? 'Ik bied twee trajecten aan waarmee we samen jouw gezondheidsdoelen gaan proberen te bereiken. Bij beide trajecten sta ik 24/7 voor je klaar om je te helpen bij al jouw vragen.'}
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {trajecten.map((t) => (
+            {trajectenData.map((t: typeof trajecten[0]) => (
               <div
                 key={t.id}
                 className={`bg-white/40 rounded-2xl border border-beige-dark border-l-4 ${t.featured ? 'border-l-terracotta' : 'border-l-blue-accent'} flex flex-col`}
@@ -126,8 +146,8 @@ export default function TrajectenPage() {
                 Losse consulten
               </h2>
               <p className="font-body text-text-medium text-sm leading-relaxed max-w-xl">
-                Mocht je daarna het gevoel hebben dat je ergens tegenaan blijft lopen, dan kunnen
-                we altijd een los consult inplannen. De kosten hiervan zijn <strong>€ 60,- per uur</strong>.
+                {cms?.losConsultTekst ?? 'Mocht je daarna het gevoel hebben dat je ergens tegenaan blijft lopen, dan kunnen we altijd een los consult inplannen.'}{' '}
+                De kosten hiervan zijn <strong>{cms?.losConsultPrijs ?? '€ 60,-'} per uur</strong>.
               </p>
             </div>
             <Link href="/contact" className="btn-terracotta shrink-0">

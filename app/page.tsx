@@ -116,19 +116,13 @@ export default async function HomePage() {
             </div>
             <div className="border-l-2 border-blue-accent pl-8 order-1 lg:order-2">
               <h2 className="font-heading text-4xl sm:text-5xl text-blue-accent font-semibold mb-6">
-                De kracht van voeding
+                {cms?.krachtTitel ?? 'De kracht van voeding'}
               </h2>
               <p className="font-body text-text-medium leading-relaxed mb-4">
-                Jarenlang had ik zelf last van darmklachten, heftige acne en een opgeblazen
-                gevoel. Mijn hormonen waren volledig uit balans en pas toen ik overstapte op een
-                plantaardig dieet, verdwenen mijn klachten bijna volledig. Ik voelde mij weer in
-                balans. Dat gun ik jou ook!
+                {cms?.krachtTekst1 ?? 'Jarenlang had ik zelf last van darmklachten, heftige acne en een opgeblazen gevoel. Mijn hormonen waren volledig uit balans en pas toen ik overstapte op een plantaardig dieet, verdwenen mijn klachten bijna volledig. Ik voelde mij weer in balans. Dat gun ik jou ook!'}
               </p>
               <p className="font-body text-text-medium leading-relaxed mb-8">
-                Ik geloof in de kracht van voeding en het zelf herstellend vermogen van ons
-                lichaam. Uit balans zijn komt vaak voor, maar met de juiste voedingsstoffen kan
-                je lichaam langzaam zich herstellen en weer in evenwicht komen. Met kleine
-                stapjes kun je het verschil al voelen.
+                {cms?.krachtTekst2 ?? 'Ik geloof in de kracht van voeding en het zelf herstellend vermogen van ons lichaam. Uit balans zijn komt vaak voor, maar met de juiste voedingsstoffen kan je lichaam langzaam zich herstellen en weer in evenwicht komen.'}
               </p>
               <Link href="/over-mij" className="btn-terracotta">
                 Meer over mij
@@ -151,9 +145,7 @@ export default async function HomePage() {
             {/* Links: intro + 2 kaarten gestapeld */}
             <div>
               <p className="font-body text-text-medium text-sm leading-relaxed mb-6">
-                Ik bied twee trajecten aan waarmee we samen jouw gezondheidsdoelen gaan proberen
-                te bereiken. Bij beide trajecten sta ik 24/7 voor je klaar om je te helpen bij
-                al jouw vragen.
+                {cms?.trajectenIntro ?? 'Ik bied twee trajecten aan waarmee we samen jouw gezondheidsdoelen gaan proberen te bereiken. Bij beide trajecten sta ik 24/7 voor je klaar om je te helpen bij al jouw vragen.'}
               </p>
               <Link href="/trajecten" className="btn-terracotta mb-8 inline-block">
                 Ontdek de trajecten
@@ -194,15 +186,15 @@ export default async function HomePage() {
                 Wat jij sowieso gaat leren
               </p>
               <div className="space-y-6">
-                {leerpunten.map((punt) => (
-                  <div key={punt.title} className="flex gap-4">
+                {(cms?.leerpunten ?? leerpunten).map((punt: { titel?: string; title?: string; beschrijving?: string; description?: string }) => (
+                  <div key={punt.titel ?? punt.title} className="flex gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-terracotta mt-2 shrink-0" />
                     <div>
                       <h4 className="font-body font-semibold text-text-dark text-sm mb-0.5">
-                        {punt.title}
+                        {punt.titel ?? punt.title}
                       </h4>
                       <p className="font-body text-text-medium text-sm leading-relaxed">
-                        {punt.description}
+                        {punt.beschrijving ?? punt.description}
                       </p>
                     </div>
                   </div>

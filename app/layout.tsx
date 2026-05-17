@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Cormorant_Garamond, DM_Sans, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
+import FooterWrapper from '@/components/FooterWrapper'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-body bg-beige text-text-dark antialiased">
         <Navigation />
         <main>{children}</main>
-        <Footer />
+        <FooterWrapper />
       </body>
     </html>
   )
