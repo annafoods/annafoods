@@ -26,7 +26,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://annasfoodlab.nl'),
+  metadataBase: new URL('https://annafoods.nl'),
   title: {
     template: '%s | Anna Foods',
     default: 'Anna Foods – Orthomoleculair Diëtist',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'nl_NL',
-    url: 'https://annasfoodlab.nl',
+    url: 'https://annafoods.nl',
     siteName: 'Anna Foods',
   },
   robots: {

@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { Resend } from 'resend'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,23 +12,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Verplichte velden ontbreken' }, { status: 400 })
     }
 
-    // ── Email verzending ──────────────────────────────────────────────────
-    // Optie 1: Resend (aanbevolen voor Vercel)
-    //   npm install resend
-    //   const { Resend } = await import('resend')
-    //   const resend = new Resend(process.env.RESEND_API_KEY)
-    //   await resend.emails.send({
-    //     from: 'website@annasfoodlab.nl',
-    //     to: 'annick@annasfoodlab.com',
-    //     subject: `Nieuw contactformulier van ${naam}`,
-    //     text: `Naam: ${naam}\nEmail: ${email}\nTelefoon: ${telefoon || '-'}\nTraject: ${traject || '-'}\n\n${bericht}`,
-    //   })
-    //
-    // Optie 2: Nodemailer met SMTP
-    // Optie 3: Formspree.io – vervang het formulier action met jouw Formspree URL
-    // ─────────────────────────────────────────────────────────────────────
+    await resend.emails.send({
+      from: 'website@annafoods.nl',
+      to: 'annick@annasfoodlab.com',
+      replyTo: email,
+      subject: `Nieuw bericht van ${naam}`,
+      text: `Naam: ${naam}
+E-mail: ${email}
+Telefoon: ${telefoon || '-'}
+Traject: ${traject || '-'}
 
-    console.log('Contact form submission:', { naam, email, telefoon, traject, bericht })
+${bericht}`,
+    })
 
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (err) {
