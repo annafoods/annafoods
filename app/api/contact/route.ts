@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,17 +9,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Verplichte velden ontbreken' }, { status: 400 })
     }
 
+    const { Resend } = await import('resend')
+    const resend = new Resend(process.env.RESEND_API_KEY)
+
     await resend.emails.send({
-      from: 'onboarding@resend.dev', // Tijdelijk totdat annafoods.nl domein geverifieerd is — daarna wijzigen naar website@annafoods.nl
+      from: 'onboarding@resend.dev', // Tijdelijk — wijzigen naar website@annafoods.nl zodra domein geverifieerd is
       to: 'annick@annasfoodlab.com',
       replyTo: email,
       subject: `Nieuw bericht van ${naam}`,
-      text: `Naam: ${naam}
-E-mail: ${email}
-Telefoon: ${telefoon || '-'}
-Traject: ${traject || '-'}
-
-${bericht}`,
+      text: `Naam: ${naam}\nE-mail: ${email}\nTelefoon: ${telefoon || '-'}\nTraject: ${traject || '-'}\n\n${bericht}`,
     })
 
     return NextResponse.json({ success: true }, { status: 200 })
