@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import VerhaalExpand from './VerhaalExpand'
+import { client } from '@/lib/sanity'
+import { overMijQuery } from '@/lib/queries'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Over mij',
@@ -56,7 +60,9 @@ function VerticaleTijdlijn({ items, kleur }: { items: TijdlijnItem[]; kleur: str
   )
 }
 
-export default function OverMijPage() {
+export default async function OverMijPage() {
+  const cms = await client.fetch(overMijQuery).catch(() => null)
+
   return (
     <>
       {/* ── Hero ── */}
@@ -74,28 +80,12 @@ export default function OverMijPage() {
             </div>
             <div className="border-l-2 border-blue-accent pl-8 pt-2">
               <h1 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold leading-tight mb-6">
-                Mijn reis met voeding als kompas
+                {cms?.heroTitel ?? 'Mijn reis met voeding als kompas'}
               </h1>
               <div className="space-y-4 font-body text-text-medium leading-relaxed">
-                <p>
-                  Gezond eten kreeg ik van huis uit mee, en bewuste keuzes maken voelde altijd
-                  goed. Toch had ik op jonge leeftijd regelmatig last van buikpijn. Al snel werd
-                  mij verteld dat ik waarschijnlijk een prikkelbare darm syndroom (PDS) had,
-                  maar dat voelde niet als een echte oplossing.
-                </p>
-                <p>
-                  Tijdens mijn studententijd werden mijn klachten erger. Mijn buik was vaak
-                  opgeblazen en daarnaast kreeg ik last van heftige acne. Ik probeerde van alles,
-                  maar niets hielp echt. Pas toen ik overstapte op een plantaardig
-                  voedingspatroon, met veel groenten, fruit, peulvruchten en noten, en minder
-                  suiker en geraffineerde koolhydraten, begon ik me beter te voelen.
-                </p>
-                <p>
-                  Ook bracht ik meer balans in mijn leven door yoga en ontspanning. Ik stopte
-                  met de anticonceptiepil en het slikken van Roaccutane (acne remmer), en
-                  langzaam maar zeker werd mijn huid rustiger en namen mijn buikklachten af.
-                  Eindelijk kreeg ik mijn energie terug!
-                </p>
+                <p>{cms?.heroAlinea1 ?? 'Gezond eten kreeg ik van huis uit mee, en bewuste keuzes maken voelde altijd goed.'}</p>
+                <p>{cms?.heroAlinea2 ?? 'Tijdens mijn studententijd werden mijn klachten erger.'}</p>
+                <p>{cms?.heroAlinea3 ?? 'Ook bracht ik meer balans in mijn leven door yoga en ontspanning. Eindelijk kreeg ik mijn energie terug!'}</p>
               </div>
               <Link href="/contact" className="btn-terracotta mt-8 inline-block">
                 Boek jouw consult
@@ -114,7 +104,14 @@ export default function OverMijPage() {
               <h2 className="font-heading text-2xl text-brown-gold font-semibold mb-6">
                 Mijn achtergrond
               </h2>
-              <VerhaalExpand />
+              <VerhaalExpand
+                alinea1={cms?.achtergrondAlinea1}
+                alinea2={cms?.achtergrondAlinea2}
+                alinea3={cms?.achtergrondAlinea3}
+                alinea4={cms?.achtergrondAlinea4}
+                alinea5={cms?.achtergrondAlinea5}
+                alinea6={cms?.achtergrondAlinea6}
+              />
             </div>
 
             {/* Rechts: twee tijdlijnen naast elkaar */}

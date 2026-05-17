@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { client } from '@/lib/sanity'
+import { voorWieQuery } from '@/lib/queries'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Voor wie',
@@ -25,7 +29,19 @@ const resultaten = [
   'Minder overweldigend door alle voedingskeuzes',
 ]
 
-export default function VoorWiePage() {
+export default async function VoorWiePage() {
+  const cms = await client.fetch(voorWieQuery).catch(() => null)
+
+  const klachtenList = cms?.klachten ?? klachten
+  const resultatenList = cms?.resultaten ?? resultaten
+  const beloftesList = cms?.beloftes ?? [
+    'Ik ben eerlijk met je — ook als dat soms moeilijk te horen is',
+    'Ik ben 24/7 bereikbaar via WhatsApp voor al jouw vragen',
+    'Ik luister écht naar jou en jouw situatie',
+    'Ik geef je een plan dat past bij wie jij bent, niet een standaard schema',
+    'Ik sta voor jou klaar gedurende het hele traject',
+  ]
+
   return (
     <>
       {/* ── Hero: klachten + resultaat ── */}
@@ -40,10 +56,10 @@ export default function VoorWiePage() {
             {/* Klachten */}
             <div>
               <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-6">
-                Herken jij dit?
+                {cms?.klachtenTitel ?? 'Herken jij dit?'}
               </h2>
               <ul className="space-y-3 mb-8">
-                {klachten.map((k) => (
+                {klachtenList.map((k: string) => (
                   <li key={k} className="flex items-start gap-3 font-body text-text-medium text-base leading-relaxed">
                     <span className="w-2 h-2 rounded-full bg-terracotta mt-2 shrink-0" />
                     {k}
@@ -51,8 +67,7 @@ export default function VoorWiePage() {
                 ))}
               </ul>
               <p className="font-body text-text-medium leading-relaxed mb-8">
-                Dan ben je bij mij aan het juiste adres. Samen kijken we wat jouw lichaam
-                nodig heeft om weer in balans te komen.
+                {cms?.klachtenTekst ?? 'Dan ben je bij mij aan het juiste adres. Samen kijken we wat jouw lichaam nodig heeft om weer in balans te komen.'}
               </p>
               <Link href="/contact" className="btn-terracotta">
                 Plan een gratis kennismaking
@@ -62,10 +77,10 @@ export default function VoorWiePage() {
             {/* Resultaat */}
             <div>
               <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-6">
-                Wat levert het op?
+                {cms?.resultatenTitel ?? 'Wat levert het op?'}
               </h2>
               <ul className="space-y-3">
-                {resultaten.map((r) => (
+                {resultatenList.map((r: string) => (
                   <li key={r} className="flex items-start gap-3 font-body text-text-medium text-base leading-relaxed">
                     <span className="text-terracotta mt-1 shrink-0">✓</span>
                     {r}
@@ -103,13 +118,7 @@ export default function VoorWiePage() {
                   Mijn aanpak
                 </h2>
                 <p className="font-body text-text-medium leading-relaxed">
-                  Als orthomoleculair diëtist staat voor mij kwaliteit voorop. Ik kijk graag naar het
-                  grotere plaatje. Voeding is een belangrijke pijler, maar ook mondgezondheid, stress,
-                  slaap, ontspanning en beweging neem ik hierin mee. Ik vertaal mijn wetenschappelijke
-                  kennis naar praktische inzichten met een holistische visie. Betrouwbaarheid van
-                  informatie vind ik heel belangrijk. Tijdens mijn consulten hecht ik waarde aan
-                  verbinding en luister ik graag naar wat jij nodig hebt. Ik stel een plan op dat bij
-                  jou past, rekening houdend met jouw waarden en leefstijl.
+                  {cms?.aanpakTekst ?? 'Als orthomoleculair diëtist staat voor mij kwaliteit voorop. Ik kijk graag naar het grotere plaatje. Voeding is een belangrijke pijler, maar ook mondgezondheid, stress, slaap, ontspanning en beweging neem ik hierin mee.'}
                 </p>
               </div>
 
@@ -118,10 +127,7 @@ export default function VoorWiePage() {
                   Mijn missie
                 </h2>
                 <p className="font-body text-text-medium leading-relaxed">
-                  Mijn missie is om jou op weg te helpen naar een gezondere leefstijl waar je
-                  fysiek en mentaal verschil merkt. Dit doen we samen, stap voor stap. Een aanpak
-                  die past bij jouw leefstijl en bij wie jij bent. Ik weet dat eerste stapjes al
-                  kunnen helpen om jou het verschil te laten voelen.
+                  {cms?.missieTekst ?? 'Mijn missie is om jou op weg te helpen naar een gezondere leefstijl waar je fysiek en mentaal verschil merkt. Dit doen we samen, stap voor stap.'}
                 </p>
               </div>
 
@@ -130,13 +136,7 @@ export default function VoorWiePage() {
                   Mijn belofte
                 </h2>
                 <ul className="space-y-3">
-                  {[
-                    'Ik ben eerlijk met je — ook als dat soms moeilijk te horen is',
-                    'Ik ben 24/7 bereikbaar via WhatsApp voor al jouw vragen',
-                    'Ik luister écht naar jou en jouw situatie',
-                    'Ik geef je een plan dat past bij wie jij bent, niet een standaard schema',
-                    'Ik sta voor jou klaar gedurende het hele traject',
-                  ].map((item) => (
+                  {beloftesList.map((item: string) => (
                     <li key={item} className="flex items-start gap-3 font-body text-text-medium leading-relaxed">
                       <span className="text-brown-gold mt-1 shrink-0">✓</span>
                       {item}
