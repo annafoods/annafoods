@@ -1,0 +1,14 @@
+{
+  "name": "annafoods-studio",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  },
+  "dependencies": {
+    "sanity": "^3",
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}
