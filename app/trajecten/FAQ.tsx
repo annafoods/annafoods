@@ -45,11 +45,17 @@ const vragen = [
   },
 ]
 
-export default function FAQ() {
+type FAQItem = { _id?: string; vraag?: string; q?: string; antwoord?: string; a?: string }
+
+export default function FAQ({ items }: { items?: FAQItem[] }) {
   const [open, setOpen] = useState<number | null>(null)
 
-  const left = vragen.slice(0, 5)
-  const right = vragen.slice(5)
+  const data = (items && items.length > 0)
+    ? items.map(i => ({ q: i.vraag ?? i.q ?? '', a: i.antwoord ?? i.a ?? '' }))
+    : vragen
+
+  const left = data.slice(0, Math.ceil(data.length / 2))
+  const right = data.slice(Math.ceil(data.length / 2))
 
   const Item = ({ item, idx }: { item: typeof vragen[0]; idx: number }) => (
     <div className="border border-beige-dark rounded-xl overflow-hidden">
@@ -77,7 +83,7 @@ export default function FAQ() {
         {left.map((item, i) => <Item key={i} item={item} idx={i} />)}
       </div>
       <div className="space-y-3">
-        {right.map((item, i) => <Item key={i} item={item} idx={i + 5} />)}
+        {right.map((item, i) => <Item key={i} item={item} idx={i + left.length} />)}
       </div>
     </div>
   )

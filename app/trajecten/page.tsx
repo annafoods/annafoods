@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQ from './FAQ'
 import { client } from '@/lib/sanity'
-import { trajectenPaginaQuery, trajectenQuery } from '@/lib/queries'
+import { trajectenPaginaQuery, trajectenQuery, faqQuery } from '@/lib/queries'
 
 export const dynamic = 'force-dynamic'
 
@@ -56,9 +56,10 @@ const trajecten = [
 ]
 
 export default async function TrajectenPage() {
-  const [cms, sanityTrajecten] = await Promise.all([
+  const [cms, sanityTrajecten, faqItems] = await Promise.all([
     client.fetch(trajectenPaginaQuery).catch(() => null),
     client.fetch(trajectenQuery).catch(() => []),
+    client.fetch(faqQuery).catch(() => []),
   ])
 
   // Map Sanity trajecten to local format if available
@@ -162,7 +163,7 @@ export default async function TrajectenPage() {
           <h2 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold text-center mb-12">
             Veelgestelde vragen
           </h2>
-          <FAQ />
+          <FAQ items={faqItems} />
         </div>
       </section>
     </>

@@ -1,13 +1,17 @@
 import type { Metadata } from 'next'
 import ContactForm from './ContactForm'
+import { client } from '@/lib/sanity'
+import { contactPaginaQuery } from '@/lib/queries'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description:
-    'Neem contact op voor een gratis kennismakingsgesprek of stel je vraag. Ik reageer binnen 24 uur.',
+  description: 'Neem contact op voor een gratis kennismakingsgesprek of stel je vraag. Ik reageer binnen 24 uur.',
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const cms = await client.fetch(contactPaginaQuery).catch(() => null)
   return (
     <>
       {/* ── Page header ── */}
@@ -18,7 +22,7 @@ export default function ContactPage() {
             Contact
           </h1>
           <p className="font-body text-text-medium max-w-xl mx-auto text-center mt-6">
-            Heb je vragen of wil je direct een consult boeken? Ik hoor graag van je!
+            {cms?.subtitel ?? 'Heb je vragen of wil je direct een consult boeken? Ik hoor graag van je!'}
           </p>
         </div>
       </section>
@@ -31,26 +35,25 @@ export default function ContactPage() {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="font-heading text-3xl text-blue-accent font-semibold mb-4">
-                  Laten we kennismaken
+                  {cms?.linkseTitel ?? 'Laten we kennismaken'}
                 </h2>
                 <p className="font-body text-text-medium text-sm leading-relaxed">
-                  Stuur me een berichtje via het formulier, bel me of mail me direct. Ik
-                  reageer binnen 24 uur.
+                  {cms?.linkseTekst ?? 'Stuur me een berichtje via het formulier, bel me of mail me direct. Ik reageer binnen 24 uur.'}
                 </p>
               </div>
 
               <div className="space-y-4">
                 <a
-                  href="tel:+31618382828"
+                  href={`tel:${(cms?.telefoon ?? '+31618382828').replace(/\s/g,'')}`}
                   className="flex items-center gap-3 font-body text-text-medium hover:text-blue-accent transition-colors"
                 >
                   <span className="w-10 h-10 bg-beige-dark rounded-full flex items-center justify-center shrink-0 text-lg">
                     📞
                   </span>
-                  +31 6 18 38 28 28
+                  {cms?.telefoon ?? '+31 6 18 38 28 28'}
                 </a>
                 <a
-                  href="mailto:annick@annasfoodlab.com"
+                  href={`mailto:${cms?.email ?? 'annick@annasfoodlab.com'}`}
                   className="flex items-center gap-3 font-body text-text-medium hover:text-blue-accent transition-colors"
                 >
                   <span className="w-10 h-10 bg-beige-dark rounded-full flex items-center justify-center shrink-0 text-lg">
@@ -63,9 +66,9 @@ export default function ContactPage() {
                     📍
                   </span>
                   <span>
-                    [Jouw stad]
+                    {cms?.locatie ?? 'Amsterdam / online'}
                     <br />
-                    <span className="text-xs opacity-70">Consulten ook online mogelijk</span>
+                    <span className="text-xs opacity-70">{cms?.locatieSub ?? 'Consulten ook online mogelijk'}</span>
                   </span>
                 </div>
               </div>

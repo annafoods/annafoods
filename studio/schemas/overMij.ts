@@ -33,6 +33,34 @@ export default defineType({
     defineField({ name: 'meerTekst1', title: 'Meer over mij — Alinea 1', type: 'text' }),
     defineField({ name: 'meerTekst2', title: 'Meer over mij — Alinea 2', type: 'text' }),
     defineField({ name: 'meerTekst3', title: 'Meer over mij — Alinea 3', type: 'text' }),
+    defineField({
+      name: 'opleidingen',
+      title: 'Opleidingen (tijdlijn)',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          { name: 'jaar', title: 'Jaar', type: 'string' },
+          { name: 'titel', title: 'Titel', type: 'string' },
+          { name: 'organisatie', title: 'Organisatie', type: 'string' },
+          { name: 'detail', title: 'Extra info (optioneel)', type: 'string' },
+        ],
+      }],
+    }),
+    defineField({
+      name: 'ervaringen',
+      title: 'Ervaringen (tijdlijn)',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          { name: 'jaar', title: 'Jaar', type: 'string' },
+          { name: 'titel', title: 'Titel', type: 'string' },
+          { name: 'organisatie', title: 'Organisatie', type: 'string' },
+          { name: 'detail', title: 'Extra info (optioneel)', type: 'string' },
+        ],
+      }],
+    }),
   ],
   preview: { prepare: () => ({ title: 'Over mij' }) },
 })

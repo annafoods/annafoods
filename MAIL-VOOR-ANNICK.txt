@@ -1,0 +1,110 @@
+Onderwerp: Handleiding & inloggegevens jouw website annafoods.nl
+
+Hoi Annick,
+
+Hieronder vind je alles wat je nodig hebt om je website zelf te beheren.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INLOGGEGEVENS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SANITY STUDIO (teksten website bewerken)
+URL: https://annafoods.sanity.studio
+→ Klik op "Continue with GitHub"
+E-mail: info@annafoods.nl
+Wachtwoord GitHub: jijhem-sirqo4-wepsyX
+
+STRATO — E-mail (info@annafoods.nl)
+E-mail: info@annafoods.nl
+Wachtwoord: xexpem-kuQby2-cejqov
+
+STRATO — Webhost (domein & DNS)
+Klantnummer: 77980422
+Wachtwoord: Karamoja123!
+
+RESEND (contactformulier e-mails)
+URL: https://resend.com
+E-mail: info@annafoods.nl
+Wachtwoord: Jyfvo1-nozdig-fotcez
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HANDLEIDING — TEKSTEN AANPASSEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STAP 1 — Inloggen
+Ga naar https://annafoods.sanity.studio
+Klik op "Continue with GitHub" en log in met info@annafoods.nl
+
+STAP 2 — Tekst aanpassen
+Je ziet links het menu met alle pagina's en onderdelen:
+
+• Homepage → hero tekst, kracht van voeding, leerpunten
+• Over mij pagina → bio, achtergrond, kwaliteit, registraties
+• Voor wie pagina → klachten, resultaten, aanpak, missie, belofte
+• Trajecten pagina → introtekst, visie, losse consulten
+• Trajecten → prijzen, inhoud per traject
+• Ervaringen (testimonials) → toevoegen/bewerken
+• Inspiratie artikelen → nieuwe artikelen schrijven
+• Site-instellingen → telefoon, e-mail, socials, footer teksten
+
+STAP 3 — Publiceren
+Na elke aanpassing klik je rechtsonder op "Publish".
+Pas ná het publishen is de tekst live op de website.
+(Niet gepubliceerd = gele "Draft" stip = niet zichtbaar)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NIEUWE TESTIMONIAL TOEVOEGEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Ga naar Sanity Studio → Ervaringen (testimonials)
+2. Klik op het + icoontje
+3. Vul Naam en Quote in
+4. Vul Volgorde in (1 = eerste, 2 = tweede, etc.)
+5. Klik Publish → staat direct op de website
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NIEUW INSPIRATIE ARTIKEL SCHRIJVEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Ga naar Sanity Studio → Inspiratie artikelen
+2. Klik op het + icoontje
+3. Vul in: Titel, Categorie, Samenvatting, Datum, Leestijd
+4. Klik bij "URL (slug)" op Generate
+5. Schrijf je artikel in het Inhoud veld
+6. Klik Publish
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WAT KAN JE NIET ZELF AANPASSEN?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Voor onderstaande dingen mail je Joost (joostkoevoets@gmail.com).
+Hij past dit aan via Claude.
+
+• Kleuren, lettergroottes en layout
+• Navigatiemenu aanpassen
+• Foto's vervangen
+• Knoppen (kleur, positie)
+• Nieuwe pagina's toevoegen
+• FAQ vragen op de trajecten pagina
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROBLEMEN?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Aanpassing gepubliceerd maar niet zichtbaar?
+→ Wacht 30 seconden en ververs de pagina (Cmd+R)
+
+Website doet het niet of ziet er raar uit?
+→ Mail Joost: joostkoevoets@gmail.com
+
+Inloggen lukt niet?
+→ Ga naar https://annafoods.sanity.studio
+   Klik "Continue with GitHub"
+   Gebruik info@annafoods.nl
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Succes met je website! 🌿
+
+Groeten,
+Joost

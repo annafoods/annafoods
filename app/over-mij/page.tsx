@@ -63,6 +63,15 @@ function VerticaleTijdlijn({ items, kleur }: { items: TijdlijnItem[]; kleur: str
 export default async function OverMijPage() {
   const cms = await client.fetch(overMijQuery).catch(() => null)
 
+  // Tijdlijn uit Sanity of fallback
+  const opleiding = cms?.opleidingen?.length > 0
+    ? cms.opleidingen.map((o: { jaar: string; titel: string; organisatie?: string; detail?: string }) => ({ jaar: o.jaar, titel: o.titel, sub: [o.organisatie, o.detail].filter(Boolean).join(' · ') }))
+    : opleidingen
+
+  const ervaring = cms?.ervaringen?.length > 0
+    ? cms.ervaringen.map((e: { jaar: string; titel: string; organisatie?: string; detail?: string }) => ({ jaar: e.jaar, titel: e.titel, sub: [e.organisatie, e.detail].filter(Boolean).join(' · ') }))
+    : ervaringen
+
   return (
     <>
       {/* ── Hero ── */}
@@ -120,13 +129,13 @@ export default async function OverMijPage() {
                 <p className="font-body text-xs uppercase tracking-widest text-blue-accent mb-3">
                   Opleidingen
                 </p>
-                <VerticaleTijdlijn items={opleidingen} kleur="bg-blue-accent" />
+                <VerticaleTijdlijn items={opleiding} kleur="bg-blue-accent" />
               </div>
               <div>
                 <p className="font-body text-xs uppercase tracking-widest text-terracotta mb-3">
                   Ervaringen
                 </p>
-                <VerticaleTijdlijn items={ervaringen} kleur="bg-terracotta" />
+                <VerticaleTijdlijn items={ervaring} kleur="bg-terracotta" />
               </div>
             </div>
           </div>
