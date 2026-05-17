@@ -146,8 +146,7 @@ export default async function TrajectenPage() {
                 Losse consulten
               </h2>
               <p className="font-body text-text-medium text-sm leading-relaxed max-w-xl">
-                {cms?.losConsultTekst ?? 'Mocht je daarna het gevoel hebben dat je ergens tegenaan blijft lopen, dan kunnen we altijd een los consult inplannen.'}{' '}
-                De kosten hiervan zijn <strong>{cms?.losConsultPrijs ?? '€ 60,-'} per uur</strong>.
+                {cms?.losConsultTekst ?? 'Mocht je daarna het gevoel hebben dat je ergens tegenaan blijft lopen, dan kunnen we altijd een los consult inplannen. De kosten hiervan zijn € 60,- per uur.'}
               </p>
             </div>
             <Link href="/contact" className="btn-terracotta shrink-0">
