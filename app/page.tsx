@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { client } from '@/lib/sanity'
-import { ervaringenQuery } from '@/lib/queries'
+import { ervaringenQuery, homepageQuery } from '@/lib/queries'
 
 export const revalidate = 60 // herlaad elke 60 seconden
 
@@ -65,7 +65,10 @@ const fallbackErvaringen = [
 ]
 
 export default async function HomePage() {
-  const sanityErvaringen = await client.fetch(ervaringenQuery).catch(() => [])
+  const [sanityErvaringen, cms] = await Promise.all([
+    client.fetch(ervaringenQuery).catch(() => []),
+    client.fetch(homepageQuery).catch(() => null),
+  ])
   const ervaringen = sanityErvaringen.length > 0 ? sanityErvaringen : fallbackErvaringen
 
   return (
@@ -76,18 +79,13 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-blue-accent font-bold leading-tight mb-6">
-                Jouw herstel begint hier, met voeding die bij jou past
+                {cms?.heroTitel ?? 'Jouw herstel begint hier, met voeding die bij jou past'}
               </h1>
               <p className="font-body text-text-medium text-base leading-relaxed mb-8 max-w-lg">
-                Leuk dat je er bent! Als orthomoleculair diëtist vind ik het belangrijk om jou
-                te helpen in je gezondheid en je klachten te verminderen. Onder mijn begeleiding
-                geef ik persoonlijk advies dat goed bij jou en je leefstijl past, waarbij ik
-                zowel vanuit een wetenschappelijk oogpunt als een holistische benadering naar je
-                kijk. Ik geloof dat ieder mens uniek is, en daarom stel ik samen met jou doelen
-                die aansluiten bij jouw persoonlijke behoeften en leefstijl.
+                {cms?.heroTekst ?? 'Leuk dat je er bent! Als orthomoleculair diëtist vind ik het belangrijk om jou te helpen in je gezondheid en je klachten te verminderen. Onder mijn begeleiding geef ik persoonlijk advies dat goed bij jou en je leefstijl past, waarbij ik zowel vanuit een wetenschappelijk oogpunt als een holistische benadering naar je kijk.'}
               </p>
               <Link href="/contact" className="btn-terracotta">
-                Boek jouw consult!
+                {cms?.heroCta ?? 'Boek jouw consult!'}
               </Link>
             </div>
             <div className="relative h-[420px] sm:h-[520px] lg:h-[600px] rounded-2xl overflow-hidden">
