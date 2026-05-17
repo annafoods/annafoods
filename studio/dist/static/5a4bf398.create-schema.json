@@ -1,0 +1,346 @@
+[
+  {
+    "fields": [
+      {
+        "name": "telefoon",
+        "type": "string",
+        "title": "Telefoonnummer"
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "title": "E-mailadres"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "instagram",
+        "type": "url",
+        "title": "Instagram URL"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "linkedin",
+        "type": "url",
+        "title": "LinkedIn URL"
+      }
+    ],
+    "name": "instellingen",
+    "type": "document",
+    "title": "Site-instellingen"
+  },
+  {
+    "fields": [
+      {
+        "name": "naam",
+        "type": "string"
+      },
+      {
+        "name": "quote",
+        "type": "text"
+      },
+      {
+        "name": "volgorde",
+        "type": "number"
+      }
+    ],
+    "name": "ervaring",
+    "type": "document",
+    "title": "Ervaringen (testimonials)"
+  },
+  {
+    "fields": [
+      {
+        "name": "titel",
+        "type": "string"
+      },
+      {
+        "name": "tagline",
+        "type": "string",
+        "title": "Tagline (bijv. \"3 maanden\")"
+      },
+      {
+        "name": "prijs",
+        "type": "string",
+        "title": "Prijs (bijv. \"€ 300,- excl. BTW\")"
+      },
+      {
+        "name": "consults",
+        "type": "string",
+        "title": "Aantal consults"
+      },
+      {
+        "name": "beschrijving",
+        "type": "text",
+        "title": "Korte beschrijving"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "inclusief",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "name": "waarde",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "specs",
+        "type": "array",
+        "title": "Consult tijden"
+      },
+      {
+        "name": "meestGekozen",
+        "type": "boolean",
+        "title": "Meest gekozen"
+      },
+      {
+        "name": "volgorde",
+        "type": "number"
+      }
+    ],
+    "name": "traject",
+    "type": "document",
+    "title": "Trajecten"
+  },
+  {
+    "fields": [
+      {
+        "name": "titel",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "titel"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug",
+        "title": "URL (slug)"
+      },
+      {
+        "options": {
+          "list": [
+            "Recepten",
+            "Tips",
+            "Artikelen",
+            "Supplementen"
+          ]
+        },
+        "name": "categorie",
+        "type": "string"
+      },
+      {
+        "name": "uitgelicht",
+        "type": "boolean",
+        "title": "Uitgelicht artikel"
+      },
+      {
+        "name": "samenvatting",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "inhoud",
+        "type": "array"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "afbeelding",
+        "type": "image"
+      },
+      {
+        "name": "leestijd",
+        "type": "string",
+        "title": "Leestijd (bijv. \"4 min\")"
+      },
+      {
+        "name": "datum",
+        "type": "date"
+      }
+    ],
+    "name": "artikel",
+    "type": "document",
+    "title": "Inspiratie artikelen"
+  }
+]

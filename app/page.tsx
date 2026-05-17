@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { client } from '@/lib/sanity'
+import { ervaringenQuery } from '@/lib/queries'
 
 export const metadata: Metadata = {
   title: 'Home – Orthomoleculair Diëtist',
@@ -53,25 +55,17 @@ const leerpunten = [
   },
 ]
 
-const ervaringen = [
-  {
-    quote:
-      'Anna luistert aandachtig, biedt persoonlijk advies en zorgt ervoor dat je je doelen op een haalbare manier bereikt. Haar kennis en betrokkenheid maken een groot verschil in je gezondheidstraject. Mijn PCOS-klachten zijn na vier jaar nu compleet verdwenen, geweldig!',
-    naam: 'Jantje Hagel',
-  },
-  {
-    quote:
-      'Dankzij het traject weet ik nu precies wat mijn lichaam nodig heeft. Mijn energieniveau is enorm verbeterd en de darmklachten zijn bijna verdwenen. Ik had dit jaren eerder moeten doen!',
-    naam: 'Sophie van den Berg',
-  },
-  {
-    quote:
-      'Eindelijk een aanpak die écht bij mij past. Anna neemt de tijd om jou echt te begrijpen en dat merk je in elk advies. Na acht weken voel ik me als herboren.',
-    naam: 'Lisa Vermeer',
-  },
+
+const fallbackErvaringen = [
+  { _id: '1', quote: 'Anna luistert aandachtig, biedt persoonlijk advies en zorgt ervoor dat je je doelen op een haalbare manier bereikt. Haar kennis en betrokkenheid maken een groot verschil in je gezondheidstraject. Mijn PCOS-klachten zijn na vier jaar nu compleet verdwenen, geweldig!', naam: 'Jantje Hagel' },
+  { _id: '2', quote: 'Dankzij het traject weet ik nu precies wat mijn lichaam nodig heeft. Mijn energieniveau is enorm verbeterd en de darmklachten zijn bijna verdwenen. Ik had dit jaren eerder moeten doen!', naam: 'Sophie van den Berg' },
+  { _id: '3', quote: 'Eindelijk een aanpak die écht bij mij past. Anna neemt de tijd om jou echt te begrijpen en dat merk je in elk advies. Na acht weken voel ik me als herboren.', naam: 'Lisa Vermeer' },
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+  const sanityErvaringen = await client.fetch(ervaringenQuery).catch(() => [])
+  const ervaringen = sanityErvaringen.length > 0 ? sanityErvaringen : fallbackErvaringen
+
   return (
     <>
       {/* ── Hero ── */}
@@ -226,7 +220,7 @@ export default function HomePage() {
             Ervaringen
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {ervaringen.map((e, i) => (
+            {ervaringen.map((e: { _id?: string; naam: string; quote: string }, i: number) => (
               <div key={i} className="bg-white/40 rounded-2xl p-8 border border-beige-dark flex flex-col">
                 <p className="font-body text-text-medium leading-relaxed mb-6 flex-grow">
                   &ldquo;{e.quote}&rdquo;

@@ -53,9 +53,24 @@ const categoryColors: Record<string, string> = {
   Artikelen: 'bg-purple-100 text-purple-800',
 }
 
-export default function InspiratiePage() {
-  const featured = artikelen[0]
-  const rest = artikelen.slice(1)
+export default async function InspiratiePage() {
+  const { client } = await import('@/lib/sanity')
+  const { artikelenQuery } = await import('@/lib/queries')
+  const sanityArtikelen = await client.fetch(artikelenQuery).catch(() => [])
+  const allArtikelen = sanityArtikelen.length > 0
+    ? sanityArtikelen.map((a: { _id: string; titel: string; slug: string; categorie: string; uitgelicht?: boolean; samenvatting: string; leestijd: string; datum: string }) => ({
+        slug: a.slug,
+        category: a.categorie,
+        title: a.titel,
+        excerpt: a.samenvatting,
+        readTime: a.leestijd,
+        date: a.datum,
+        featured: a.uitgelicht,
+      }))
+    : artikelen
+
+  const featured = allArtikelen[0]
+  const rest = allArtikelen.slice(1)
 
   return (
     <>
@@ -99,7 +114,7 @@ export default function InspiratiePage() {
       <section className="bg-beige py-10 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {rest.map((artikel) => (
+            {rest.map((artikel: { slug: string; category: string; title: string; excerpt: string; readTime: string; date: string }) => (
               <article key={artikel.slug} className="group bg-white/40 rounded-2xl overflow-hidden border border-beige-dark hover:shadow-md transition-shadow">
                 <div className="h-44 bg-beige-dark flex items-center justify-center">
                   <p className="text-text-medium text-xs font-body px-4 text-center">📸 {artikel.title}</p>
