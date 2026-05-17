@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { client } from '@/lib/sanity'
 import { ervaringenQuery, homepageQuery } from '@/lib/queries'
 
-export const revalidate = 60 // herlaad elke 60 seconden
+export const revalidate = 30
 
 export const metadata: Metadata = {
   title: 'Home – Orthomoleculair Diëtist',
