@@ -219,9 +219,13 @@ export default async function HomePage() {
           <h2 className="font-heading text-[52px] sm:text-[96px] lg:text-[112px] leading-none text-blue-accent font-bold mb-12">
             Ervaringen
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className={`grid grid-cols-1 gap-8 ${
+            ervaringen.length === 2 ? 'md:grid-cols-2' :
+            ervaringen.length === 4 ? 'md:grid-cols-2 lg:grid-cols-4' :
+            'md:grid-cols-2 lg:grid-cols-3'
+          }`}>
             {ervaringen.map((e: { _id?: string; naam: string; quote: string }, i: number) => (
-              <div key={i} className="bg-white/40 rounded-2xl p-8 border border-beige-dark flex flex-col">
+              <div key={e._id ?? i} className="bg-white/40 rounded-2xl p-8 border border-beige-dark flex flex-col">
                 <p className="font-body text-text-medium leading-relaxed mb-6 flex-grow">
                   &ldquo;{e.quote}&rdquo;
                 </p>
