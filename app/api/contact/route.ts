@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
 
     await resend.emails.send({
       from: 'onboarding@resend.dev', // Tijdelijk — wijzigen naar website@annafoods.nl zodra domein geverifieerd is
-      to: 'annick@annasfoodlab.com',
+      to: 'info@annafoods.nl', // Resend free plan: alleen sturen naar account-email (info@annafoods.nl) vóór domeinverificatie
       replyTo: email,
       subject: `Nieuw bericht van ${naam}`,
       text: `Naam: ${naam}\nE-mail: ${email}\nTelefoon: ${telefoon || '-'}\nTraject: ${traject || '-'}\n\n${bericht}`,
