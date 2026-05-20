@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { client } from '@/lib/sanity'
 import { siteInstellingenQuery } from '@/lib/queries'
-import MiniPlanForm from './MiniPlanForm'
+import MiniPlanModal from './MiniPlanModal'
 
 export default async function FooterWrapper() {
   const s = await client.fetch(siteInstellingenQuery).catch(() => null)
@@ -35,7 +35,7 @@ export default async function FooterWrapper() {
               <p className="font-body text-text-medium leading-relaxed mb-6 flex-grow">
                 {ctaDownload}
               </p>
-              <MiniPlanForm />
+              <MiniPlanModal />
             </div>
           </div>
         </div>
