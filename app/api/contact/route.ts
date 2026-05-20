@@ -1,4 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@sanity/client'
+
+const sanity = createClient({
+  projectId: 'ui0ua8r1',
+  dataset: 'production',
+  apiVersion: '2024-01-01',
+  useCdn: false,
+})
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,6 +19,12 @@ export async function POST(req: NextRequest) {
 
     const { Resend } = await import('resend')
     const resend = new Resend(process.env.RESEND_API_KEY)
+
+    // Haal auto-reply tekst op uit Sanity
+    const instellingen = await sanity.fetch(`*[_type == "siteInstellingen"][0]{ autoReplyOnderwerp, autoReplyTekst }`).catch(() => null)
+
+    const onderwerp = instellingen?.autoReplyOnderwerp ?? 'Bedankt voor je bericht!'
+    const tekst = (instellingen?.autoReplyTekst ?? 'Hoi {naam},\n\nBedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.\n\nTot snel!\nAnnick').replace('{naam}', naam)
 
     // E-mail naar Annick
     await resend.emails.send({
@@ -25,8 +39,8 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: 'Annick van Anna Foods <info@annafoods.nl>',
       to: email,
-      subject: 'Bedankt voor je bericht!',
-      text: `Hoi ${naam},\n\nBedankt voor je bericht! Ik heb het goed ontvangen en neem zo snel mogelijk contact met je op, uiterlijk binnen 24 uur.\n\nTot snel!\n\nAnnick\nAnna Foods\nwww.annafoods.nl`,
+      subject: onderwerp,
+      text: tekst,
     })
 
     return NextResponse.json({ success: true }, { status: 200 })
