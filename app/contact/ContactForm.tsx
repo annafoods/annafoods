@@ -128,6 +128,12 @@ export default function ContactForm() {
         />
       </div>
 
+      <p className="font-body text-xs text-text-medium/60 leading-relaxed">
+        Door dit formulier te versturen ga je akkoord met onze{' '}
+        <a href="/privacy" className="underline hover:text-blue-accent transition-colors">privacyverklaring</a>.
+        Jouw gegevens worden uitsluitend gebruikt om contact met je op te nemen.
+      </p>
+
       {status === 'success' && (
         <div className="bg-green-50 border border-green-200 text-green-800 font-body text-sm rounded-xl px-4 py-3">
           ✓ Bedankt! Ik neem zo snel mogelijk contact met je op.

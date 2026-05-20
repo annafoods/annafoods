@@ -69,6 +69,7 @@ export default async function FooterWrapper() {
                 </svg>
               </a>
               <span className="text-text-medium/50 text-xs">© {new Date().getFullYear()} Anna Foods</span>
+              <a href="/privacy" className="text-text-medium/50 text-xs hover:text-blue-accent transition-colors">Privacyverklaring</a>
             </div>
           </div>
         </div>

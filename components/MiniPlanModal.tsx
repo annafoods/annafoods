@@ -130,6 +130,11 @@ export default function MiniPlanModal() {
                     <p className="font-body text-xs text-red-600">Er ging iets mis. Probeer opnieuw.</p>
                   )}
 
+                  <p className="font-body text-xs text-text-medium/60 leading-relaxed">
+                    Door dit formulier in te vullen ga je akkoord met onze{' '}
+                    <a href="/privacy" className="underline hover:text-blue-accent transition-colors" target="_blank">privacyverklaring</a>.
+                  </p>
+
                   <button
                     type="submit"
                     disabled={status === 'loading'}
