@@ -53,13 +53,13 @@ export default async function ContactPage() {
                   {cms?.telefoon ?? '+31 6 18 38 28 28'}
                 </a>
                 <a
-                  href={`mailto:${cms?.email ?? 'annick@annasfoodlab.com'}`}
+                  href={`mailto:${cms?.email ?? 'info@annafoods.nl'}`}
                   className="flex items-center gap-3 font-body text-text-medium hover:text-blue-accent transition-colors"
                 >
                   <span className="w-10 h-10 bg-beige-dark rounded-full flex items-center justify-center shrink-0 text-lg">
                     ✉️
                   </span>
-                  annick@annasfoodlab.com
+                  info@annafoods.nl
                 </a>
                 <div className="flex items-start gap-3 font-body text-text-medium">
                   <span className="w-10 h-10 bg-beige-dark rounded-full flex items-center justify-center shrink-0 text-lg">

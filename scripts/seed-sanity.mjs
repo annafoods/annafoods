@@ -80,7 +80,7 @@ const docs = [
     _id: 'singleton-site-instellingen',
     _type: 'siteInstellingen',
     telefoon: '+31 6 18 38 28 28',
-    email: 'annick@annasfoodlab.com',
+    email: 'info@annafoods.nl',
     instagram: 'https://instagram.com',
     linkedin: 'https://linkedin.com',
     footerCtaTitel: 'Klaar om te beginnen?',

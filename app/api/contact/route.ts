@@ -13,8 +13,8 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY)
 
     await resend.emails.send({
-      from: 'onboarding@resend.dev', // Tijdelijk — wijzigen naar website@annafoods.nl zodra domein geverifieerd is
-      to: 'info@annafoods.nl', // Resend free plan: alleen sturen naar account-email (info@annafoods.nl) vóór domeinverificatie
+      from: 'website@annafoods.nl',
+      to: 'info@annafoods.nl',
       replyTo: email,
       subject: `Nieuw bericht van ${naam}`,
       text: `Naam: ${naam}\nE-mail: ${email}\nTelefoon: ${telefoon || '-'}\nTraject: ${traject || '-'}\n\n${bericht}`,

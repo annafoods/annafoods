@@ -6,7 +6,7 @@ export default async function FooterWrapper() {
   const s = await client.fetch(siteInstellingenQuery).catch(() => null)
 
   const telefoon = s?.telefoon ?? '+31 6 18 38 28 28'
-  const email = s?.email ?? 'annick@annasfoodlab.com'
+  const email = s?.email ?? 'info@annafoods.nl'
   const instagram = s?.instagram ?? 'https://instagram.com'
   const linkedin = s?.linkedin ?? 'https://linkedin.com'
   const ctaTitel = s?.footerCtaTitel ?? 'Klaar om te beginnen?'

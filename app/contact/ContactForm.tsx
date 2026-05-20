@@ -135,7 +135,7 @@ export default function ContactForm() {
       )}
       {status === 'error' && (
         <div className="bg-red-50 border border-red-200 text-red-700 font-body text-sm rounded-xl px-4 py-3">
-          Er is iets misgegaan. Probeer het opnieuw of mail direct naar annick@annasfoodlab.com.
+          Er is iets misgegaan. Probeer het opnieuw of mail direct naar info@annafoods.nl.
         </div>
       )}
 

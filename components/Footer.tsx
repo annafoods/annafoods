@@ -63,8 +63,8 @@ export default function Footer() {
               <a href="tel:+31618382828" className="hover:text-blue-accent transition-colors">
                 +31 6 18 38 28 28
               </a>
-              <a href="mailto:annick@annasfoodlab.com" className="hover:text-blue-accent transition-colors">
-                annick@annasfoodlab.com
+              <a href="mailto:info@annafoods.nl" className="hover:text-blue-accent transition-colors">
+                info@annafoods.nl
               </a>
             </div>
 
