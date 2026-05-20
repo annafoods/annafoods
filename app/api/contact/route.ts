@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
 
     // Automatische bevestiging naar bezoeker
     await resend.emails.send({
-      from: 'Annick van Anna Foods <website@annafoods.nl>',
+      from: 'Annick van Anna Foods <info@annafoods.nl>',
       to: email,
       subject: 'Bedankt voor je bericht!',
       text: `Hoi ${naam},\n\nBedankt voor je bericht! Ik heb het goed ontvangen en neem zo snel mogelijk contact met je op, uiterlijk binnen 24 uur.\n\nTot snel!\n\nAnnick\nAnna Foods\nwww.annafoods.nl`,
