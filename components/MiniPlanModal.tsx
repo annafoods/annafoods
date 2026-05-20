@@ -6,6 +6,7 @@ export default function MiniPlanModal() {
   const [open, setOpen] = useState(false)
   const [naam, setNaam] = useState('')
   const [email, setEmail] = useState('')
+  const [telefoon, setTelefoon] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: FormEvent) => {
@@ -15,7 +16,7 @@ export default function MiniPlanModal() {
       const res = await fetch('/api/miniplan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ naam, email }),
+        body: JSON.stringify({ naam, email, telefoon }),
       })
       if (res.ok) {
         setStatus('success')
@@ -108,6 +109,19 @@ export default function MiniPlanModal() {
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                       placeholder="jouw@email.nl"
+                      className="w-full px-4 py-3 rounded-xl border border-beige-dark bg-white/60 font-body text-sm text-text-dark placeholder:text-text-medium/50 focus:outline-none focus:border-terracotta transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="mp-telefoon" className="block font-body text-sm text-text-dark mb-1">
+                      Telefoonnummer <span className="font-normal text-text-medium/60">(optioneel)</span>
+                    </label>
+                    <input
+                      id="mp-telefoon"
+                      type="tel"
+                      value={telefoon}
+                      onChange={e => setTelefoon(e.target.value)}
+                      placeholder="06 ..."
                       className="w-full px-4 py-3 rounded-xl border border-beige-dark bg-white/60 font-body text-sm text-text-dark placeholder:text-text-medium/50 focus:outline-none focus:border-terracotta transition-colors"
                     />
                   </div>

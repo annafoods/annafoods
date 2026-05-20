@@ -10,7 +10,7 @@ const sanity = createClient({
 
 export async function POST(req: NextRequest) {
   try {
-    const { naam, email } = await req.json()
+    const { naam, email, telefoon } = await req.json()
     if (!email) return NextResponse.json({ error: 'E-mail ontbreekt' }, { status: 400 })
 
     const { Resend } = await import('resend')
@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
       from: 'website@annafoods.nl',
       to: 'info@annafoods.nl',
       subject: `Nieuw mini plan aanvraag van ${naam ?? email}`,
-      text: `Naam: ${naam ?? '-'}\nE-mail: ${email}\n\nDeze persoon heeft het mini plan aangevraagd.`,
+      text: `Naam: ${naam ?? '-'}\nE-mail: ${email}\nTelefoon: ${telefoon || '-'}\n\nDeze persoon heeft het mini plan aangevraagd.`,
     })
 
     return NextResponse.json({ success: true })
