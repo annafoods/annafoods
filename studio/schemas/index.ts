@@ -8,6 +8,7 @@ import voorWie from './voorWie'
 import trajectenPagina from './trajectenPagina'
 import contactPagina from './contactPagina'
 import siteInstellingen from './siteInstellingen'
+import mailTemplates from './mailTemplates'
 
 export const schemaTypes = [
   // Pagina's
@@ -23,4 +24,5 @@ export const schemaTypes = [
   artikel,
   // Instellingen
   siteInstellingen,
+  mailTemplates,
 ]

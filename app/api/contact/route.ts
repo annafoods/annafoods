@@ -21,10 +21,10 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY)
 
     // Haal auto-reply tekst op uit Sanity
-    const instellingen = await sanity.fetch(`*[_type == "siteInstellingen"][0]{ autoReplyOnderwerp, autoReplyTekst }`).catch(() => null)
+    const templates = await sanity.fetch(`*[_type == "mailTemplates"][0]{ contactOnderwerp, contactTekst }`).catch(() => null)
 
-    const onderwerp = instellingen?.autoReplyOnderwerp ?? 'Bedankt voor je bericht!'
-    const tekst = (instellingen?.autoReplyTekst ?? 'Hoi {naam},\n\nBedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.\n\nTot snel!\nAnnick').replace('{naam}', naam)
+    const onderwerp = templates?.contactOnderwerp ?? 'Bedankt voor je bericht!'
+    const tekst = (templates?.contactTekst ?? 'Hoi {naam},\n\nBedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.\n\nTot snel!\nAnnick').replace('{naam}', naam)
 
     // E-mail naar Annick
     await resend.emails.send({
