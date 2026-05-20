@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@sanity/client'
+import { rateLimit } from '@/lib/rateLimit'
 
 const sanity = createClient({
   projectId: 'ui0ua8r1',
@@ -10,6 +11,12 @@ const sanity = createClient({
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ?? 'unknown'
+    const { ok } = rateLimit(ip)
+    if (!ok) {
+      return NextResponse.json({ error: 'Te veel verzoeken. Probeer het later opnieuw.' }, { status: 429 })
+    }
+
     const { naam, email, telefoon } = await req.json()
     if (!email) return NextResponse.json({ error: 'E-mail ontbreekt' }, { status: 400 })
 
