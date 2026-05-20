@@ -1,4 +1,8 @@
 import type { Metadata } from 'next'
+import { client } from '@/lib/sanity'
+import { PortableText } from '@portabletext/react'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Privacyverklaring',
@@ -6,7 +10,26 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const cms = await client.fetch(`*[_type == "privacyPagina"][0]`).catch(() => null)
+
+  // Als Sanity inhoud heeft, toon die — anders de hardcoded versie
+  if (cms?.inhoud?.length > 0) {
+    return (
+      <section className="bg-beige py-16 lg:py-24">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="font-heading text-4xl sm:text-5xl text-brown-gold font-semibold mb-2">
+            Privacyverklaring
+          </h1>
+          <p className="font-body text-text-medium/60 text-sm mb-12">Laatst bijgewerkt: mei 2026</p>
+          <div className="prose prose-neutral max-w-none font-body text-text-medium leading-relaxed">
+            <PortableText value={cms.inhoud} />
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="bg-beige py-16 lg:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
