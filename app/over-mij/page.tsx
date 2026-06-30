@@ -152,48 +152,23 @@ export default async function OverMijPage() {
               </h2>
               <div className="space-y-4 font-body text-text-medium leading-relaxed">
                 <p>
-                  [Jouw tekst hier — vertel wat kwaliteit voor jou betekent in de praktijk: hoe
-                  je consulten aanpakt, hoe je kennis up-to-date houdt, en waarom een
-                  wetenschappelijke onderbouwing voor jou essentieel is.]
+                  {cms?.kwaliteitTekst ?? 'Kwaliteit betekent voor mij dat ik altijd werk vanuit de laatste wetenschappelijke inzichten, gecombineerd met een persoonlijke en holistische blik op jouw klachten.'}
                 </p>
                 <p>
-                  Mijn aanpak is altijd evidence-based: ik combineer de nieuwste
-                  wetenschappelijke inzichten met praktische toepasbaarheid in het dagelijks
-                  leven. Want goede intenties zonder onderbouwing zijn niet genoeg.
+                  {cms?.kwaliteitTekst2 ?? 'Mijn aanpak is altijd evidence-based: ik combineer de nieuwste wetenschappelijke inzichten met praktische toepasbaarheid in het dagelijks leven. Want goede intenties zonder onderbouwing zijn niet genoeg.'}
                 </p>
                 <p>
-                  [Aanvullende alinea over jouw werkwijze, hoe je omgaat met nieuwe
-                  onderzoeken, of waarom jij gelooft in continue bijscholing.]
+                  {cms?.kwaliteitTekst3 ?? 'Ik blijf mij continu bijscholen, zodat ik je altijd kan voorzien van actuele en betrouwbare adviezen die echt bij jouw situatie passen.'}
                 </p>
               </div>
             </div>
-            <div className="space-y-8">
-              <div>
-                <h3 className="font-heading text-2xl text-brown-gold font-semibold mb-4">
-                  Registraties
-                </h3>
-                <ul className="space-y-2">
-                  {['[Registratie 1 — bijv. BIG-register Diëtist]', '[Registratie 2]', '[Registratie 3]'].map((item) => (
-                    <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm">
-                      <span className="text-terracotta mt-1 shrink-0">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-heading text-2xl text-brown-gold font-semibold mb-4">
-                  Beroepsverenigingen
-                </h3>
-                <ul className="space-y-2">
-                  {['[Vereniging 1 — bijv. MBOG]', '[Vereniging 2]', '[Vereniging 3]'].map((item) => (
-                    <li key={item} className="flex items-start gap-3 font-body text-text-medium text-sm">
-                      <span className="text-blue-accent mt-1 shrink-0">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="relative h-[360px] sm:h-[440px] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/kwaliteit-placeholder.jpg"
+                alt="Verse groenten en fruit"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
